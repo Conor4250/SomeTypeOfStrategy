@@ -1,0 +1,159 @@
+{
+    "name": "MasterInput",
+    "maps": [
+        {
+            "name": "In Game",
+            "id": "3f430632-9e34-48bb-af59-4367c7a1d4c4",
+            "actions": [
+                {
+                    "name": "Delete Word",
+                    "type": "Button",
+                    "id": "7d1c0521-9ee8-4a32-b8f2-3e4698a2a8d2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Camera Up",
+                    "type": "Button",
+                    "id": "15105bef-7eb4-4921-b455-6ca860d924a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Camera Down",
+                    "type": "Button",
+                    "id": "b98641a9-31ef-49d4-a304-6697ff03c4bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Camera Left",
+                    "type": "Button",
+                    "id": "6f255213-2ccc-4dfe-89c5-acea371c8ce6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Camera Right",
+                    "type": "Button",
+                    "id": "fd3a1dee-27be-45ae-a1fd-db271938bd01",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Zoom In",
+                    "type": "Value",
+                    "id": "cea9e76d-2110-4617-aceb-827d9ddfe6b9",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Zoom Out",
+                    "type": "Value",
+                    "id": "d60b4d60-0f4c-401c-83e2-dba5ee4f09c0",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "51a19600-0f76-419f-bf34-aa604263285c",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Delete Word",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0bf0c2b-8c99-4a81-ad75-055eb4e24c20",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Camera Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b825779-52f9-4952-896e-f7cebfe7cbe0",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Camera Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23966c8e-5113-4bac-a96e-b0082b4739b7",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Camera Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96f41f3f-1986-4374-8d7a-3bd0dddf6355",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Camera Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4110d9d1-8d11-4c4b-b0ae-f562163006ee",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Zoom In",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc6f9c9b-4dc4-4765-814b-dee50618b8e0",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Zoom Out",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
