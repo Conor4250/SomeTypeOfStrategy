@@ -12,8 +12,4 @@ public class UserInterfaceManager : MonoBehaviour
         userText.text = text;
     }
 
-    void UpdateSelectionInfo()
-    {
-
-    }
 }

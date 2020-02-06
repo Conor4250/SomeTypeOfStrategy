@@ -6,137 +6,194 @@
             "id": "3f430632-9e34-48bb-af59-4367c7a1d4c4",
             "actions": [
                 {
-                    "name": "Delete Word",
+                    "name": "Action10",
                     "type": "Button",
-                    "id": "7d1c0521-9ee8-4a32-b8f2-3e4698a2a8d2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
-                    "name": "Camera Up",
-                    "type": "Button",
-                    "id": "15105bef-7eb4-4921-b455-6ca860d924a6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
-                    "name": "Camera Down",
-                    "type": "Button",
-                    "id": "b98641a9-31ef-49d4-a304-6697ff03c4bd",
+                    "id": "b9ab3ae3-6451-44b4-88cc-402e67919f10",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
                 },
                 {
-                    "name": "Camera Left",
+                    "name": "Action9",
                     "type": "Button",
-                    "id": "6f255213-2ccc-4dfe-89c5-acea371c8ce6",
+                    "id": "e0516176-01d4-49e2-bf05-830306b05fcf",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
                 },
                 {
-                    "name": "Camera Right",
+                    "name": "Action8",
                     "type": "Button",
-                    "id": "fd3a1dee-27be-45ae-a1fd-db271938bd01",
+                    "id": "44620cd4-af26-4ac2-957e-14684d461b58",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
                 },
                 {
-                    "name": "Zoom In",
-                    "type": "Value",
-                    "id": "cea9e76d-2110-4617-aceb-827d9ddfe6b9",
-                    "expectedControlType": "Integer",
+                    "name": "Action7",
+                    "type": "Button",
+                    "id": "092b297d-8434-4aba-b2c4-5223a70f08f5",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
                 },
                 {
-                    "name": "Zoom Out",
-                    "type": "Value",
-                    "id": "d60b4d60-0f4c-401c-83e2-dba5ee4f09c0",
-                    "expectedControlType": "Integer",
+                    "name": "Action6",
+                    "type": "Button",
+                    "id": "2df35eeb-847a-49d5-ba12-03b14b31d639",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
+                },
+                {
+                    "name": "Action5",
+                    "type": "Button",
+                    "id": "3f689ec1-ccdb-4ff0-8d35-2e0558777e60",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Action4",
+                    "type": "Button",
+                    "id": "d22ef401-fa02-4d2f-a618-545c39d333ca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Action3",
+                    "type": "Button",
+                    "id": "114dcc1a-a27c-407c-86e0-999f5216ec78",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Action2",
+                    "type": "Button",
+                    "id": "1541ea2e-b3bc-46da-83f6-405b3007d721",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Action1",
+                    "type": "Button",
+                    "id": "cbbf3f99-bff4-4d76-b28f-da22b14999b2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "51a19600-0f76-419f-bf34-aa604263285c",
-                    "path": "<Keyboard>/backspace",
+                    "id": "f7a5c742-64f1-47c6-825d-caf6418c3484",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Delete Word",
+                    "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c0bf0c2b-8c99-4a81-ad75-055eb4e24c20",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "a79ef906-3aff-4a19-b178-b7fd948789ed",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Camera Up",
+                    "action": "Action2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4b825779-52f9-4952-896e-f7cebfe7cbe0",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "e4a29070-8d00-48e3-b5ac-6942a488dc31",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Camera Down",
+                    "action": "Action3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "23966c8e-5113-4bac-a96e-b0082b4739b7",
-                    "path": "<Keyboard>/leftArrow",
+                    "id": "0bc85b7d-ae6c-4c14-89c5-1433d222fbec",
+                    "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Camera Left",
+                    "action": "Action4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "96f41f3f-1986-4374-8d7a-3bd0dddf6355",
-                    "path": "<Keyboard>/rightArrow",
+                    "id": "cc5133b8-c998-4efd-aef0-6c9aaa63450f",
+                    "path": "<Keyboard>/5",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Camera Right",
+                    "action": "Action5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4110d9d1-8d11-4c4b-b0ae-f562163006ee",
-                    "path": "<Keyboard>/leftShift",
+                    "id": "dac22055-406e-4823-a85f-112ea174712b",
+                    "path": "<Keyboard>/6",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Zoom In",
+                    "action": "Action6",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "cc6f9c9b-4dc4-4765-814b-dee50618b8e0",
-                    "path": "<Keyboard>/leftCtrl",
+                    "id": "a9b4bb8c-6934-4215-9abf-0f17b650d444",
+                    "path": "<Keyboard>/7",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Zoom Out",
+                    "action": "Action7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "172defc3-57bc-4e1e-a27e-c5f7369fe3d9",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Action8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a85f2ce-ba72-4777-9a47-12e0bd73cdb0",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Action9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26afad90-0e25-4dff-afb8-00c332bf0173",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Action10",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

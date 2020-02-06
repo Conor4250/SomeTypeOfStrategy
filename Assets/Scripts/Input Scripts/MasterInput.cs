@@ -19,137 +19,194 @@ public class MasterInput : IInputActionCollection, IDisposable
             ""id"": ""3f430632-9e34-48bb-af59-4367c7a1d4c4"",
             ""actions"": [
                 {
-                    ""name"": ""Delete Word"",
+                    ""name"": ""Action10"",
                     ""type"": ""Button"",
-                    ""id"": ""7d1c0521-9ee8-4a32-b8f2-3e4698a2a8d2"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""Camera Up"",
-                    ""type"": ""Button"",
-                    ""id"": ""15105bef-7eb4-4921-b455-6ca860d924a6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""Camera Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""b98641a9-31ef-49d4-a304-6697ff03c4bd"",
+                    ""id"": ""b9ab3ae3-6451-44b4-88cc-402e67919f10"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
-                    ""name"": ""Camera Left"",
+                    ""name"": ""Action9"",
                     ""type"": ""Button"",
-                    ""id"": ""6f255213-2ccc-4dfe-89c5-acea371c8ce6"",
+                    ""id"": ""e0516176-01d4-49e2-bf05-830306b05fcf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
-                    ""name"": ""Camera Right"",
+                    ""name"": ""Action8"",
                     ""type"": ""Button"",
-                    ""id"": ""fd3a1dee-27be-45ae-a1fd-db271938bd01"",
+                    ""id"": ""44620cd4-af26-4ac2-957e-14684d461b58"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
-                    ""name"": ""Zoom In"",
-                    ""type"": ""Value"",
-                    ""id"": ""cea9e76d-2110-4617-aceb-827d9ddfe6b9"",
-                    ""expectedControlType"": ""Integer"",
+                    ""name"": ""Action7"",
+                    ""type"": ""Button"",
+                    ""id"": ""092b297d-8434-4aba-b2c4-5223a70f08f5"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
-                    ""name"": ""Zoom Out"",
-                    ""type"": ""Value"",
-                    ""id"": ""d60b4d60-0f4c-401c-83e2-dba5ee4f09c0"",
-                    ""expectedControlType"": ""Integer"",
+                    ""name"": ""Action6"",
+                    ""type"": ""Button"",
+                    ""id"": ""2df35eeb-847a-49d5-ba12-03b14b31d639"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action5"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f689ec1-ccdb-4ff0-8d35-2e0558777e60"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action4"",
+                    ""type"": ""Button"",
+                    ""id"": ""d22ef401-fa02-4d2f-a618-545c39d333ca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action3"",
+                    ""type"": ""Button"",
+                    ""id"": ""114dcc1a-a27c-407c-86e0-999f5216ec78"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action2"",
+                    ""type"": ""Button"",
+                    ""id"": ""1541ea2e-b3bc-46da-83f6-405b3007d721"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action1"",
+                    ""type"": ""Button"",
+                    ""id"": ""cbbf3f99-bff4-4d76-b28f-da22b14999b2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""51a19600-0f76-419f-bf34-aa604263285c"",
-                    ""path"": ""<Keyboard>/backspace"",
+                    ""id"": ""f7a5c742-64f1-47c6-825d-caf6418c3484"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Delete Word"",
+                    ""action"": ""Action1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c0bf0c2b-8c99-4a81-ad75-055eb4e24c20"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""id"": ""a79ef906-3aff-4a19-b178-b7fd948789ed"",
+                    ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Camera Up"",
+                    ""action"": ""Action2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4b825779-52f9-4952-896e-f7cebfe7cbe0"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""id"": ""e4a29070-8d00-48e3-b5ac-6942a488dc31"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Camera Down"",
+                    ""action"": ""Action3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""23966c8e-5113-4bac-a96e-b0082b4739b7"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""id"": ""0bc85b7d-ae6c-4c14-89c5-1433d222fbec"",
+                    ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Camera Left"",
+                    ""action"": ""Action4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""96f41f3f-1986-4374-8d7a-3bd0dddf6355"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""id"": ""cc5133b8-c998-4efd-aef0-6c9aaa63450f"",
+                    ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Camera Right"",
+                    ""action"": ""Action5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4110d9d1-8d11-4c4b-b0ae-f562163006ee"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""id"": ""dac22055-406e-4823-a85f-112ea174712b"",
+                    ""path"": ""<Keyboard>/6"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Zoom In"",
+                    ""action"": ""Action6"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cc6f9c9b-4dc4-4765-814b-dee50618b8e0"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""id"": ""a9b4bb8c-6934-4215-9abf-0f17b650d444"",
+                    ""path"": ""<Keyboard>/7"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Zoom Out"",
+                    ""action"": ""Action7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""172defc3-57bc-4e1e-a27e-c5f7369fe3d9"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Action8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a85f2ce-ba72-4777-9a47-12e0bd73cdb0"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Action9"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26afad90-0e25-4dff-afb8-00c332bf0173"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Action10"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -172,13 +229,16 @@ public class MasterInput : IInputActionCollection, IDisposable
 }");
         // In Game
         m_InGame = asset.FindActionMap("In Game", throwIfNotFound: true);
-        m_InGame_DeleteWord = m_InGame.FindAction("Delete Word", throwIfNotFound: true);
-        m_InGame_CameraUp = m_InGame.FindAction("Camera Up", throwIfNotFound: true);
-        m_InGame_CameraDown = m_InGame.FindAction("Camera Down", throwIfNotFound: true);
-        m_InGame_CameraLeft = m_InGame.FindAction("Camera Left", throwIfNotFound: true);
-        m_InGame_CameraRight = m_InGame.FindAction("Camera Right", throwIfNotFound: true);
-        m_InGame_ZoomIn = m_InGame.FindAction("Zoom In", throwIfNotFound: true);
-        m_InGame_ZoomOut = m_InGame.FindAction("Zoom Out", throwIfNotFound: true);
+        m_InGame_Action10 = m_InGame.FindAction("Action10", throwIfNotFound: true);
+        m_InGame_Action9 = m_InGame.FindAction("Action9", throwIfNotFound: true);
+        m_InGame_Action8 = m_InGame.FindAction("Action8", throwIfNotFound: true);
+        m_InGame_Action7 = m_InGame.FindAction("Action7", throwIfNotFound: true);
+        m_InGame_Action6 = m_InGame.FindAction("Action6", throwIfNotFound: true);
+        m_InGame_Action5 = m_InGame.FindAction("Action5", throwIfNotFound: true);
+        m_InGame_Action4 = m_InGame.FindAction("Action4", throwIfNotFound: true);
+        m_InGame_Action3 = m_InGame.FindAction("Action3", throwIfNotFound: true);
+        m_InGame_Action2 = m_InGame.FindAction("Action2", throwIfNotFound: true);
+        m_InGame_Action1 = m_InGame.FindAction("Action1", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -228,24 +288,30 @@ public class MasterInput : IInputActionCollection, IDisposable
     // In Game
     private readonly InputActionMap m_InGame;
     private IInGameActions m_InGameActionsCallbackInterface;
-    private readonly InputAction m_InGame_DeleteWord;
-    private readonly InputAction m_InGame_CameraUp;
-    private readonly InputAction m_InGame_CameraDown;
-    private readonly InputAction m_InGame_CameraLeft;
-    private readonly InputAction m_InGame_CameraRight;
-    private readonly InputAction m_InGame_ZoomIn;
-    private readonly InputAction m_InGame_ZoomOut;
+    private readonly InputAction m_InGame_Action10;
+    private readonly InputAction m_InGame_Action9;
+    private readonly InputAction m_InGame_Action8;
+    private readonly InputAction m_InGame_Action7;
+    private readonly InputAction m_InGame_Action6;
+    private readonly InputAction m_InGame_Action5;
+    private readonly InputAction m_InGame_Action4;
+    private readonly InputAction m_InGame_Action3;
+    private readonly InputAction m_InGame_Action2;
+    private readonly InputAction m_InGame_Action1;
     public struct InGameActions
     {
         private MasterInput m_Wrapper;
         public InGameActions(MasterInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @DeleteWord => m_Wrapper.m_InGame_DeleteWord;
-        public InputAction @CameraUp => m_Wrapper.m_InGame_CameraUp;
-        public InputAction @CameraDown => m_Wrapper.m_InGame_CameraDown;
-        public InputAction @CameraLeft => m_Wrapper.m_InGame_CameraLeft;
-        public InputAction @CameraRight => m_Wrapper.m_InGame_CameraRight;
-        public InputAction @ZoomIn => m_Wrapper.m_InGame_ZoomIn;
-        public InputAction @ZoomOut => m_Wrapper.m_InGame_ZoomOut;
+        public InputAction @Action10 => m_Wrapper.m_InGame_Action10;
+        public InputAction @Action9 => m_Wrapper.m_InGame_Action9;
+        public InputAction @Action8 => m_Wrapper.m_InGame_Action8;
+        public InputAction @Action7 => m_Wrapper.m_InGame_Action7;
+        public InputAction @Action6 => m_Wrapper.m_InGame_Action6;
+        public InputAction @Action5 => m_Wrapper.m_InGame_Action5;
+        public InputAction @Action4 => m_Wrapper.m_InGame_Action4;
+        public InputAction @Action3 => m_Wrapper.m_InGame_Action3;
+        public InputAction @Action2 => m_Wrapper.m_InGame_Action2;
+        public InputAction @Action1 => m_Wrapper.m_InGame_Action1;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -255,52 +321,70 @@ public class MasterInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_InGameActionsCallbackInterface != null)
             {
-                DeleteWord.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnDeleteWord;
-                DeleteWord.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnDeleteWord;
-                DeleteWord.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnDeleteWord;
-                CameraUp.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraUp;
-                CameraUp.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraUp;
-                CameraUp.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraUp;
-                CameraDown.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraDown;
-                CameraDown.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraDown;
-                CameraDown.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraDown;
-                CameraLeft.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraLeft;
-                CameraLeft.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraLeft;
-                CameraLeft.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraLeft;
-                CameraRight.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraRight;
-                CameraRight.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraRight;
-                CameraRight.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnCameraRight;
-                ZoomIn.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnZoomIn;
-                ZoomIn.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnZoomIn;
-                ZoomIn.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnZoomIn;
-                ZoomOut.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnZoomOut;
-                ZoomOut.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnZoomOut;
-                ZoomOut.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnZoomOut;
+                Action10.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction10;
+                Action10.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction10;
+                Action10.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction10;
+                Action9.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
+                Action9.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
+                Action9.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
+                Action8.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
+                Action8.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
+                Action8.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
+                Action7.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
+                Action7.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
+                Action7.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
+                Action6.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
+                Action6.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
+                Action6.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
+                Action5.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
+                Action5.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
+                Action5.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
+                Action4.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
+                Action4.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
+                Action4.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
+                Action3.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
+                Action3.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
+                Action3.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
+                Action2.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
+                Action2.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
+                Action2.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
+                Action1.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
+                Action1.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
+                Action1.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                DeleteWord.started += instance.OnDeleteWord;
-                DeleteWord.performed += instance.OnDeleteWord;
-                DeleteWord.canceled += instance.OnDeleteWord;
-                CameraUp.started += instance.OnCameraUp;
-                CameraUp.performed += instance.OnCameraUp;
-                CameraUp.canceled += instance.OnCameraUp;
-                CameraDown.started += instance.OnCameraDown;
-                CameraDown.performed += instance.OnCameraDown;
-                CameraDown.canceled += instance.OnCameraDown;
-                CameraLeft.started += instance.OnCameraLeft;
-                CameraLeft.performed += instance.OnCameraLeft;
-                CameraLeft.canceled += instance.OnCameraLeft;
-                CameraRight.started += instance.OnCameraRight;
-                CameraRight.performed += instance.OnCameraRight;
-                CameraRight.canceled += instance.OnCameraRight;
-                ZoomIn.started += instance.OnZoomIn;
-                ZoomIn.performed += instance.OnZoomIn;
-                ZoomIn.canceled += instance.OnZoomIn;
-                ZoomOut.started += instance.OnZoomOut;
-                ZoomOut.performed += instance.OnZoomOut;
-                ZoomOut.canceled += instance.OnZoomOut;
+                Action10.started += instance.OnAction10;
+                Action10.performed += instance.OnAction10;
+                Action10.canceled += instance.OnAction10;
+                Action9.started += instance.OnAction9;
+                Action9.performed += instance.OnAction9;
+                Action9.canceled += instance.OnAction9;
+                Action8.started += instance.OnAction8;
+                Action8.performed += instance.OnAction8;
+                Action8.canceled += instance.OnAction8;
+                Action7.started += instance.OnAction7;
+                Action7.performed += instance.OnAction7;
+                Action7.canceled += instance.OnAction7;
+                Action6.started += instance.OnAction6;
+                Action6.performed += instance.OnAction6;
+                Action6.canceled += instance.OnAction6;
+                Action5.started += instance.OnAction5;
+                Action5.performed += instance.OnAction5;
+                Action5.canceled += instance.OnAction5;
+                Action4.started += instance.OnAction4;
+                Action4.performed += instance.OnAction4;
+                Action4.canceled += instance.OnAction4;
+                Action3.started += instance.OnAction3;
+                Action3.performed += instance.OnAction3;
+                Action3.canceled += instance.OnAction3;
+                Action2.started += instance.OnAction2;
+                Action2.performed += instance.OnAction2;
+                Action2.canceled += instance.OnAction2;
+                Action1.started += instance.OnAction1;
+                Action1.performed += instance.OnAction1;
+                Action1.canceled += instance.OnAction1;
             }
         }
     }
@@ -316,12 +400,15 @@ public class MasterInput : IInputActionCollection, IDisposable
     }
     public interface IInGameActions
     {
-        void OnDeleteWord(InputAction.CallbackContext context);
-        void OnCameraUp(InputAction.CallbackContext context);
-        void OnCameraDown(InputAction.CallbackContext context);
-        void OnCameraLeft(InputAction.CallbackContext context);
-        void OnCameraRight(InputAction.CallbackContext context);
-        void OnZoomIn(InputAction.CallbackContext context);
-        void OnZoomOut(InputAction.CallbackContext context);
+        void OnAction10(InputAction.CallbackContext context);
+        void OnAction9(InputAction.CallbackContext context);
+        void OnAction8(InputAction.CallbackContext context);
+        void OnAction7(InputAction.CallbackContext context);
+        void OnAction6(InputAction.CallbackContext context);
+        void OnAction5(InputAction.CallbackContext context);
+        void OnAction4(InputAction.CallbackContext context);
+        void OnAction3(InputAction.CallbackContext context);
+        void OnAction2(InputAction.CallbackContext context);
+        void OnAction1(InputAction.CallbackContext context);
     }
 }
