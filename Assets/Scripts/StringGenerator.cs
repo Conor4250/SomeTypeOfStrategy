@@ -8,9 +8,9 @@ public class StringGenerator
     private string rightVowels;
     private string leftConstanants;
     private string rightConstanants;
-    int side;
-
     List<string> calculatedSyllables;
+
+
 
     public StringGenerator(int side)
     {
@@ -18,15 +18,15 @@ public class StringGenerator
         rightVowels = "uio";
         leftConstanants = "qwrtsdfzxcv";
         rightConstanants = "ypghjklbnm";
-        this.side = side;
         calculatedSyllables = new List<string>();
-        CalculateSyllables();
+        CalculateSyllables(side);
+
     }
 
-    private void CalculateSyllables()
+    private void CalculateSyllables(int side)
     {
         string calculatedSyllable = "";
-        if (side == 0)
+        if (side == 1)
         {
             foreach (char a in leftConstanants)
             {
@@ -34,14 +34,13 @@ public class StringGenerator
                 {
                     foreach (char c in leftConstanants)
                     {
-                        calculatedSyllable += a + b + c;
+                        calculatedSyllable = "" + a + b + c;
                         calculatedSyllables.Add(calculatedSyllable);
-                        calculatedSyllable = "";
                     }
                 }
             }
         }
-        else if (side == 1)
+        else if (side == 2)
         {
             foreach (char a in rightConstanants)
             {
@@ -49,9 +48,8 @@ public class StringGenerator
                 {
                     foreach (char c in rightConstanants)
                     {
-                        calculatedSyllable += a + b + c;
+                        calculatedSyllable = "" + a + b + c;
                         calculatedSyllables.Add(calculatedSyllable);
-                        calculatedSyllable = "";
                     }
                 }
             }
