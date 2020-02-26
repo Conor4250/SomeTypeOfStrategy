@@ -34,7 +34,12 @@ public class UnitBrain : MonoBehaviour
             case UnitState.Dying:
                 break;
         }
-        transform.position += moveVector * realSpeed * Time.deltaTime;
+
+        if (player == 1)
+            transform.position += moveVector * realSpeed * Time.deltaTime;
+        else if (player == 2)
+            transform.position -= moveVector * realSpeed * Time.deltaTime;
+
     }
     public void InitialiseStats()
     {
