@@ -7,16 +7,16 @@ using StandardUtilities.ScriptableValues;
 public class PlayerCommands : MonoBehaviour
 {
     public int playerNumber;
-    MasterInput controls;
-    public string playerInput;
+    public MasterInput controls;
     public ActionMapper mapper;
-    public UserInterfaceManager UIM;
+    UnitManager UM;
     PlayerUI playerUI;
 
     private void Awake()
     {
-        playerInput = "";
+        
         controls = new MasterInput();
+        UM = gameObject.GetComponent<UnitManager>();
         playerUI = gameObject.GetComponent<PlayerUI>();
 
     }
@@ -26,25 +26,17 @@ public class PlayerCommands : MonoBehaviour
         
     }
 
-    private void onActionOne(InputAction.CallbackContext ctx)
+    private void onAction(InputAction.CallbackContext ctx)
     {
-        playerUI.processCommand(ctx.control.name);
-    }
-    private void onActionTwo(InputAction.CallbackContext ctx)
-    {
-        playerUI.processCommand(ctx.control.name);
-    }
-    private void onActionThree(InputAction.CallbackContext ctx)
-    {
-        playerUI.processCommand(ctx.control.name);
-    }
-    private void onActionFour(InputAction.CallbackContext ctx)
-    {
-        playerUI.processCommand(ctx.control.name);
-    }
-    private void onActionFive(InputAction.CallbackContext ctx)
-    {
-        playerUI.processCommand(ctx.control.name);
+        var buttonPressed = ctx.control.name;
+        int commandInt = int.Parse(buttonPressed);
+        
+        if (playerNumber == 2)
+        {
+            commandInt -= 5;
+        }
+
+        playerUI.ProcessCommand(commandInt);
     }
 
     private void OnEnable()
@@ -53,19 +45,19 @@ public class PlayerCommands : MonoBehaviour
         controls.Enable();
         if (playerNumber == 1)
         {
-            controls.InGame.Action1.performed += onActionOne;
-            controls.InGame.Action2.performed += onActionTwo;
-            controls.InGame.Action3.performed += onActionThree;
-            controls.InGame.Action4.performed += onActionFour;
-            controls.InGame.Action5.performed += onActionFive;
+            controls.InGame.Action1.performed += onAction;
+            controls.InGame.Action2.performed += onAction;
+            controls.InGame.Action3.performed += onAction;
+            controls.InGame.Action4.performed += onAction;
+            controls.InGame.Action5.performed += onAction;
         }
         else
         {
-            controls.InGame.Action6.performed += onActionOne;
-            controls.InGame.Action7.performed += onActionTwo;
-            controls.InGame.Action8.performed += onActionThree;
-            controls.InGame.Action9.performed += onActionFour;
-            controls.InGame.Action10.performed += onActionFive;
+            controls.InGame.Action6.performed += onAction;
+            controls.InGame.Action7.performed += onAction;
+            controls.InGame.Action8.performed += onAction;
+            controls.InGame.Action9.performed += onAction;
+            controls.InGame.Action10.performed += onAction;
         }
     }
 
@@ -76,9 +68,11 @@ public class PlayerCommands : MonoBehaviour
 
     public void ProcessAnyKey(InputAction.CallbackContext callbackContext)
     {
-        Debug.Log(callbackContext.control.name);
-        playerInput += callbackContext.control.name;
-        UIM.UpdateUserText(playerInput);
+        char c = char.Parse(callbackContext.control.name);
+        Debug.Log(c);
+        UM.ScanQueueForChar(c);
+        playerUI.UpdatePlayerTextUI();
+        playerUI.UpdateQueueUI();
     }
 
     

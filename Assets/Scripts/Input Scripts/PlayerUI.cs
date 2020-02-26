@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -10,132 +11,159 @@ public class PlayerUI : MonoBehaviour
     int laneChoice;
     int typeChoice;
     int levelChoice;
+    public TextMeshProUGUI playerInput;
+    public TextMeshProUGUI queueInfo;
+    public TextMeshProUGUI queueStrings;
+    public Canvas playerInputCanvas, playerSelectionUI, queueInfoCanvas, queueStringsCanvas;
+
     void Start()
     {
         uiState = UIState.startState;
         unitManager = gameObject.GetComponent<UnitManager>();
     }
 
-    public void processCommand(string command)
+    public void UpdatePlayerTextUI()
+    {
+        Debug.Log("UpdatePlayerTextUI");
+        playerInput.text = unitManager.typedLettersToString();
+    }
+    public void UpdateQueueUI()
+    {
+        Debug.Log("UpdateQueueUI");
+        queueInfo.text = unitManager.UnitQueueInfoToString();
+        queueStrings.text = unitManager.UnitQueueToString();
+    }
+
+    public void UpdateSelectionUI()
+    {
+        Debug.Log("UpdateSelectionUI");
+    }
+
+
+    public void ProcessCommand(int command)
     {
         if (uiState == UIState.startState)
         {
-            processStartState(command);
+            ProcessStartState(command);
         }
         else if (uiState == UIState.choosingUnitType)
         {
-            processChoosingUnitType(command);
+            ProcessChoosingUnitType(command);
         }
         else if (uiState == UIState.choosingAbility)
         {
-            processChoosingAbility(command);
+            ProcessChoosingAbility(command);
         }
         else if (uiState == UIState.choosingUnitLevel)
         {
-            processChoosingUnitLevel(command);
+            ProcessChoosingUnitLevel(command);
         }
         else if (uiState == UIState.choosingUpgrade)
         {
-            processChoosingUpgrade(command);
+            ProcessChoosingUpgrade(command);
         }
 
         Debug.Log(uiState);
     }
 
-    private void processChoosingUpgrade(string command)
+    private void ProcessChoosingUpgrade(int command)
     {
     }
 
-    private void processChoosingAbility(string command)
+    private void ProcessChoosingAbility(int command)
     {
     }
 
-    private void processChoosingUnitType(string command)
+    private void ProcessChoosingUnitType(int command)
     {
-        if (command == "1")
+        Debug.Log("processChoosingUnitType");
+        if (command == 1)
         {
             typeChoice = 0;
             uiState = UIState.choosingUnitLevel;
         }
-        else if (command == "2")
+        else if (command == 2)
         {
             typeChoice = 1;
             uiState = UIState.choosingUnitLevel;
         }
-        else if (command == "3")
+        else if (command == 3)
         {
             typeChoice = 2;
             uiState = UIState.choosingUnitLevel;
         }
-        else if (command == "4")
+        else if (command == 4)
         {
-            typeChoice = 2;
+            typeChoice = 3;
             uiState = UIState.choosingUnitLevel;
         }
-        else if (command == "5")
+        else if (command == 5)
         {
-            typeChoice = 2;
+            typeChoice = 4;
             uiState = UIState.choosingUnitLevel;
         }
     }
 
-    private void processChoosingUnitLevel(string command)
+    private void ProcessChoosingUnitLevel(int command)
     {
-        if (command == "1")
+        Debug.Log("processChoosingUnitLevel");
+
+        if (command == 1)
         {
             levelChoice = 0;
             uiState = UIState.startState;
         }
-        else if (command == "2")
+        else if (command == 2)
         {
             levelChoice = 1;
-            Debug.Log("chose unit level 2");
             uiState = UIState.startState;
         }
-        else if (command == "3")
+        else if (command ==3)
         {
             levelChoice = 2;
             uiState = UIState.startState;
         }
-        else if (command == "4")
+        else if (command == 4)
         {
             levelChoice = 3;
             uiState = UIState.startState;
         }
-        else if (command == "5")
+        else if (command == 5)
         {
             levelChoice = 4;
             uiState = UIState.startState;
         }
-        
-        Debug.Log("Spawning Unit in Lane: " + laneChoice + "Type: " + typeChoice + " Level: " + levelChoice);
+
+        unitManager.QueueUnit(laneChoice,typeChoice,levelChoice);
+
+        Debug.Log("Queueing Unit in Lane: " + laneChoice + "Type: " + typeChoice + " Level: " + levelChoice);
         
 
         
     }
 
-    private void processStartState(string command)
+    private void ProcessStartState(int command)
     {
-        if (command == "1")
+        if (command == 1)
         {
             laneChoice = 0;
             uiState = UIState.choosingUnitType;
         }
-        else if (command == "2")
+        else if (command == 2)
         {
             laneChoice = 1;
             uiState = UIState.choosingUnitType;
         }
-        else if (command == "3")
+        else if (command == 3)
         {
             laneChoice = 2;
             uiState = UIState.choosingUnitType;
         }
-        else if (command == "4")
+        else if (command == 4)
         {
             uiState = UIState.choosingAbility;
         }
-        else if (command == "5")
+        else if (command == 5)
         {
             uiState = UIState.choosingUpgrade;
         }
