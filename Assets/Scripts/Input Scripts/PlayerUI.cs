@@ -14,7 +14,6 @@ public class PlayerUI : MonoBehaviour
     public TextMeshProUGUI playerInput;
     public TextMeshProUGUI queueInfo;
     public TextMeshProUGUI queueStrings;
-    public Canvas playerInputCanvas, playerSelectionUI, queueInfoCanvas, queueStringsCanvas;
 
     void Start()
     {
