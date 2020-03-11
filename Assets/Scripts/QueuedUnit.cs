@@ -6,22 +6,23 @@ using UnityEngine;
 public class QueuedUnit
 {
     public string spawnString;
+    public LaneContainer laneContainer;
     public List<Char> spawnChars;
-    public int laneInt;
-    public Transform lane;
-    public GameObject type;
-    public int level, player;
+    public int laneIndex;
+    public GameObject unitPrefab;
+    public int player;
 
-    public QueuedUnit(int player,Transform lane, int laneInt, GameObject type, int level)
+    public QueuedUnit(int player, int laneIndex, GameObject unitPrefab, LaneContainer laneContainer)
     {
-
+        this.laneContainer = laneContainer;
         this.player = player;
-        this.lane = lane;
-        this.laneInt = laneInt;
-        this.type = type;
-        this.level = level;
+        this.laneIndex = laneIndex;
+        this.unitPrefab = unitPrefab;
+        
+
         StringGenerator strGen = new StringGenerator(player);
-        spawnString = strGen.CalculateSpawnString(this.level);
+        spawnString = strGen.CalculateSpawnString(3);
+
         spawnChars = new List<Char>();
         foreach (char c in spawnString)
         {

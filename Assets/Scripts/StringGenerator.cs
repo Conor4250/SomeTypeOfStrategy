@@ -4,29 +4,25 @@ using UnityEngine;
 
 public class StringGenerator
 {
-    private string leftVowels;
-    private string rightVowels;
-    private string leftConstanants;
-    private string rightConstanants;
+    private static string leftVowels = "ea";
+    private static string rightVowels = "uio";
+    private static string leftConstanants = "qwrtsdfzxcv";
+    private static string rightConstanants = "ypghjklbnm";
     List<string> calculatedSyllables;
 
 
 
-    public StringGenerator(int side)
+    public StringGenerator(int player)
     {
-        leftVowels = "ea";
-        rightVowels = "uio";
-        leftConstanants = "qwrtsdfzxcv";
-        rightConstanants = "ypghjklbnm";
         calculatedSyllables = new List<string>();
-        CalculateSyllables(side);
+        CalculateSyllables(player);
 
     }
 
-    private void CalculateSyllables(int side)
+    private void CalculateSyllables(int player)
     {
         string calculatedSyllable = "";
-        if (side == 1)
+        if (player == 1)
         {
             foreach (char a in leftConstanants)
             {
@@ -40,7 +36,7 @@ public class StringGenerator
                 }
             }
         }
-        else if (side == 2)
+        else if (player == 2)
         {
             foreach (char a in rightConstanants)
             {
@@ -56,11 +52,11 @@ public class StringGenerator
         }
     }
 
-    public string CalculateSpawnString(int level)
+    public string CalculateSpawnString(int complexity)
     {
         
         string calculatedString = "";
-        for (int i = 0; i < (level+1)*4; i++)
+        for (int i = 0; i < (complexity+1); i++)
         {
             calculatedString += calculatedSyllables[Random.Range(0, calculatedSyllables.Count)];
         }

@@ -5,39 +5,55 @@ using UnityEngine;
 public class UnitManager : MonoBehaviour
 {
     //Spawn Points and Unit Types
-    public Transform[] laneSpawns;
     public GameObject[] unitType;
     PlayerCommands playerCommands;
     PlayerUI playerUI;
-
+    
     //Queued Units
-    List<QueuedUnit> queuedUnits;
-    List<QueuedUnit> activeUnits;
+    public List<QueuedUnit> queuedUnits;
+    List<QueuedUnit> matchedUnits;
+
+    List<QueuedUnit> waitingToSpawn;
+
     List<char> typedLetters;
     bool typing, foundMatch;
 
     //Alive Units
-    List<GameObject> livingUnits;
+    public LaneContainer laneContainer;
 
     void Start()
     {
         playerUI = gameObject.GetComponent<PlayerUI>();
-        queuedUnits = new List<QueuedUnit>();
-        activeUnits = new List<QueuedUnit>();
-        livingUnits = new List<GameObject>();
-        typedLetters = new List<char>();
         playerCommands = gameObject.GetComponent<PlayerCommands>();
+        queuedUnits = new List<QueuedUnit>();
+        matchedUnits = new List<QueuedUnit>();
+        waitingToSpawn = new List<QueuedUnit>();
+
+        typedLetters = new List<char>();
         typing = false;
     }
 
-    public void QueueUnit(int lane, int type, int level)
+    void Update()
     {
-        Debug.Log("Queueing Unit" + lane + type + level);
-        QueuedUnit unit = new QueuedUnit(playerCommands.playerNumber, laneSpawns[lane], lane+1, unitType[type], level);
+        if (waitingToSpawn.Count > 0)
+        {
+            if (!laneContainer.lanes[waitingToSpawn[0].laneIndex].GetInhabitant(0,0))
+            {
+                SpawnUnit(waitingToSpawn[0]);
+                waitingToSpawn.RemoveAt(0);
+            }
+        }
+    }
+
+    public void QueueUnit(int laneIndex, int typeIndex)
+    {
+        Debug.Log("Queueing Unit: Lane - " + (laneIndex+1) + ", Type - " + (typeIndex+1));
+        QueuedUnit unit = new QueuedUnit(playerCommands.playerNumber, laneIndex, unitType[typeIndex], laneContainer);
         queuedUnits.Add(unit);
         playerUI.UpdatePlayerTextUI();
         playerUI.UpdateQueueUI();
-        Debug.Log(unit.spawnString);
+        
+        //Debug.Log(unit.spawnString);
     }
 
     public string UnitQueueToString()
@@ -45,9 +61,9 @@ public class UnitManager : MonoBehaviour
         string unitQueueString = "";
         if (typing)
         {
-            for (int i = 0; i < activeUnits.Count; i++)
+            for (int i = 0; i < matchedUnits.Count; i++)
             {
-                unitQueueString += activeUnits[i].spawnString + " \n";
+                unitQueueString += matchedUnits[i].spawnString + " \n";
             }
         }
         else
@@ -57,7 +73,7 @@ public class UnitManager : MonoBehaviour
                 unitQueueString += queuedUnits[i].spawnString + " \n";
             }
         }
-        Debug.Log(unitQueueString);
+        //Debug.Log(unitQueueString);
         return unitQueueString;
     }
 
@@ -66,16 +82,16 @@ public class UnitManager : MonoBehaviour
         string unitQueueInfoString = "";
         if (typing)
         {
-            for (int i = 0; i < activeUnits.Count; i++)
+            for (int i = 0; i < matchedUnits.Count; i++)
             {
-                unitQueueInfoString += "T:"+ activeUnits[i].type.name + " P:" + activeUnits[i].laneInt + " L:" + (activeUnits[i].level + 1) +" \n";
+                unitQueueInfoString += "T:"+ matchedUnits[i].unitPrefab.name + " L:" + (matchedUnits[i].laneIndex + 1) +" \n";
             }
         }
         else
         {
             for (int i = 0; i < queuedUnits.Count; i++)
             {
-                unitQueueInfoString += "T:" + queuedUnits[i].type.name + " P:" + queuedUnits[i].laneInt + " L:" + (queuedUnits[i].level + 1) + " \n";
+                unitQueueInfoString += "T:" + queuedUnits[i].unitPrefab.name + " L:" + (queuedUnits[i].laneIndex +1) + " \n";
             }
         }
         return unitQueueInfoString;
@@ -101,32 +117,29 @@ public class UnitManager : MonoBehaviour
             {
                 if (input == unit.spawnChars[0])
                 {
-                    activeUnits.Add(unit);
+                    matchedUnits.Add(unit);
                     typing = true;
                 }
             }
         }
         else
         {
-            for (int i = 0; i < activeUnits.Count; i++)
+            for (int i = 0; i < matchedUnits.Count; i++)
             {
-                QueuedUnit unit = activeUnits[i];
-                if (unit.spawnString == typedLettersToString())
+                QueuedUnit unit = matchedUnits[i];
+                if (unit.spawnString == typedLettersToString()) //if theres an exact match
                 {
-                    SpawnUnit(unit);
-                    activeUnits.RemoveAt(i);
-                    queuedUnits.Remove(unit);
+                    PrepareUnit(unit);
                     continue;
                 }
-                else if (input != unit.spawnChars[typedLetters.Count - 1])
+                else if (input != unit.spawnChars[typedLetters.Count - 1]) //if input doesnt match anything
                 {
-                    
-                    activeUnits.RemoveAt(i);
+                    matchedUnits.RemoveAt(i);
                     i--;
                 }
             }
         }
-        if (activeUnits.Count == 0)
+        if (matchedUnits.Count == 0)
         {
             typedLetters.Clear();
             typing = false;
@@ -134,15 +147,45 @@ public class UnitManager : MonoBehaviour
         Debug.Log("test     "+typedLettersToString());
     }
 
+    public void PrepareUnit(QueuedUnit queuedUnit)
+    {
+        matchedUnits.Clear();
+        
+        typedLetters.Clear();
+        typing = false;
+
+        if (playerCommands.playerNumber == 1)
+        {
+            if (laneContainer.lanes[queuedUnit.laneIndex].GetInhabitant(0,0) == null)
+            {
+                SpawnUnit(queuedUnit);
+            }
+            else
+            {
+                waitingToSpawn.Add(queuedUnit);
+            }
+        }
+        else if (playerCommands.playerNumber == 2)
+        {
+            if (laneContainer.lanes[queuedUnit.laneIndex].GetInhabitant(0, laneContainer.laneWidth)==null)
+            {
+                SpawnUnit(queuedUnit);
+            }
+            else
+            {
+                waitingToSpawn.Add(queuedUnit);
+            }
+        }
+        queuedUnits.Remove(queuedUnit);
+    }
+
     public void SpawnUnit(QueuedUnit queuedUnit)
     {
-        
-        GameObject unit = Instantiate(queuedUnit.type, queuedUnit.lane.position, Quaternion.identity);
-        livingUnits.Add(unit);
-        var unitBrain = unit.GetComponent<UnitBrain>();
-        unitBrain.setLevel(queuedUnit.level);
-        unitBrain.setPlayer(queuedUnit.player);
-        unitBrain.InitialiseStats();
+        GameObject spawnedUnit = Instantiate(queuedUnit.unitPrefab, new Vector3(0,0,0), Quaternion.identity);
+        UnitStateController unitStateController = spawnedUnit.GetComponent<UnitStateController>();
+        laneContainer.lanes[queuedUnit.laneIndex].SetInhabitant(0,0, spawnedUnit);
+        spawnedUnit.SetActive(true);
+        unitStateController.Init(queuedUnit);
     }
 
 }
