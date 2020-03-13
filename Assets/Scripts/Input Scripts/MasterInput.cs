@@ -19,7 +19,7 @@ public class MasterInput : IInputActionCollection, IDisposable
             ""id"": ""3f430632-9e34-48bb-af59-4367c7a1d4c4"",
             ""actions"": [
                 {
-                    ""name"": ""Action10"",
+                    ""name"": ""Action0"",
                     ""type"": ""Button"",
                     ""id"": ""b9ab3ae3-6451-44b4-88cc-402e67919f10"",
                     ""expectedControlType"": """",
@@ -106,7 +106,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -117,7 +117,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -128,7 +128,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -139,7 +139,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -150,7 +150,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -161,7 +161,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/6"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action6"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -172,7 +172,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/7"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action7"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -183,7 +183,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/8"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action8"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -194,7 +194,7 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/9"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Action9"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -205,31 +205,19 @@ public class MasterInput : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/0"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Action10"",
+                    ""groups"": """",
+                    ""action"": ""Action0"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""Keyboard"",
-            ""bindingGroup"": ""Keyboard"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Keyboard>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
         // In Game
         m_InGame = asset.FindActionMap("In Game", throwIfNotFound: true);
-        m_InGame_Action10 = m_InGame.FindAction("Action10", throwIfNotFound: true);
+        m_InGame_Action0 = m_InGame.FindAction("Action0", throwIfNotFound: true);
         m_InGame_Action9 = m_InGame.FindAction("Action9", throwIfNotFound: true);
         m_InGame_Action8 = m_InGame.FindAction("Action8", throwIfNotFound: true);
         m_InGame_Action7 = m_InGame.FindAction("Action7", throwIfNotFound: true);
@@ -288,7 +276,7 @@ public class MasterInput : IInputActionCollection, IDisposable
     // In Game
     private readonly InputActionMap m_InGame;
     private IInGameActions m_InGameActionsCallbackInterface;
-    private readonly InputAction m_InGame_Action10;
+    private readonly InputAction m_InGame_Action0;
     private readonly InputAction m_InGame_Action9;
     private readonly InputAction m_InGame_Action8;
     private readonly InputAction m_InGame_Action7;
@@ -302,7 +290,7 @@ public class MasterInput : IInputActionCollection, IDisposable
     {
         private MasterInput m_Wrapper;
         public InGameActions(MasterInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Action10 => m_Wrapper.m_InGame_Action10;
+        public InputAction @Action0 => m_Wrapper.m_InGame_Action0;
         public InputAction @Action9 => m_Wrapper.m_InGame_Action9;
         public InputAction @Action8 => m_Wrapper.m_InGame_Action8;
         public InputAction @Action7 => m_Wrapper.m_InGame_Action7;
@@ -321,9 +309,9 @@ public class MasterInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_InGameActionsCallbackInterface != null)
             {
-                Action10.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction10;
-                Action10.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction10;
-                Action10.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction10;
+                Action0.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
+                Action0.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
+                Action0.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
                 Action9.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
                 Action9.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
                 Action9.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
@@ -355,9 +343,9 @@ public class MasterInput : IInputActionCollection, IDisposable
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Action10.started += instance.OnAction10;
-                Action10.performed += instance.OnAction10;
-                Action10.canceled += instance.OnAction10;
+                Action0.started += instance.OnAction0;
+                Action0.performed += instance.OnAction0;
+                Action0.canceled += instance.OnAction0;
                 Action9.started += instance.OnAction9;
                 Action9.performed += instance.OnAction9;
                 Action9.canceled += instance.OnAction9;
@@ -389,18 +377,9 @@ public class MasterInput : IInputActionCollection, IDisposable
         }
     }
     public InGameActions @InGame => new InGameActions(this);
-    private int m_KeyboardSchemeIndex = -1;
-    public InputControlScheme KeyboardScheme
-    {
-        get
-        {
-            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
-            return asset.controlSchemes[m_KeyboardSchemeIndex];
-        }
-    }
     public interface IInGameActions
     {
-        void OnAction10(InputAction.CallbackContext context);
+        void OnAction0(InputAction.CallbackContext context);
         void OnAction9(InputAction.CallbackContext context);
         void OnAction8(InputAction.CallbackContext context);
         void OnAction7(InputAction.CallbackContext context);

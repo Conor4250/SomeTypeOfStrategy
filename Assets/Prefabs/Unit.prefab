@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 1170532697089040589}
   - component: {fileID: 1170532697089040586}
   - component: {fileID: 1236653567}
-  - component: {fileID: 1236653568}
+  - component: {fileID: 107358238}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1170532697089040589
 Transform:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1236653568
+--- !u!114 &107358238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,10 +114,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1170532697089040587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e24433490dc2df04dbbe2fb8bae053ff, type: 3}
+  m_Script: {fileID: 11500000, guid: a8c579281af134242bc6e42bc0a5e80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 10
-  baseSpeed: 2
-  baseRange: 10
-  baseMaxHealth: 100
+  unitBaseStats: {fileID: 11400000, guid: c72e3cee441ee1847a20bb7f1f03a86a, type: 2}
+  currentState: {fileID: 11400000, guid: 5ad08193c5176a040925bae1a735c02f, type: 2}
+  remainState: {fileID: 11400000, guid: 9126907cc7a7dda42afc3228679cc8f2, type: 2}
+  gridPosX: 0
+  gridPosY: 0
+  laneContainer: {fileID: 0}
