@@ -81,6 +81,11 @@ public class UnitStateController : MonoBehaviour
         return currentSpeed;
     }
 
+    public Vector2 GetRanges()
+    {
+        return new Vector2(currentRangeMin,currentRangeMax);
+    }
+
     public void TransitionToState(UnitState nextState)
     {
         if (nextState != remainState)

@@ -79,6 +79,7 @@ public class UnitManager : MonoBehaviour
 
     public string UnitQueueInfoToString()
     {
+<<<<<<< Updated upstream:Assets/Scripts/UnitManager.cs
         string unitQueueInfoString = "";
         if (typing)
         {
@@ -95,6 +96,12 @@ public class UnitManager : MonoBehaviour
             }
         }
         return unitQueueInfoString;
+=======
+        GameObject spawnedUnit = Instantiate(queuedUnit.unitPrefab, queuedUnit.grid.spawnCells[playerNumber - 1].GetWorldPosition(), Quaternion.identity);
+        UnitStateController unitStateController = spawnedUnit.GetComponent<UnitStateController>();
+        spawnedUnit.SetActive(true);
+        unitStateController.Init(queuedUnit);
+>>>>>>> Stashed changes:Assets/Scripts/UnitSpawner.cs
     }
 
     public string typedLettersToString()
