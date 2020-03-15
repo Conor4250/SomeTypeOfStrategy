@@ -6,17 +6,18 @@ using UnityEngine;
 public class QueuedUnit
 {
     public string spawnString;
-    public LaneContainer laneContainer;
     public List<Char> spawnChars;
-    public int laneIndex;
-    public GameObject unitPrefab;
-    public int player;
 
-    public QueuedUnit(int player, int laneIndex, GameObject unitPrefab, LaneContainer laneContainer)
+
+    public int player;
+    public Jar_Grid grid;
+    public GameObject unitPrefab;
+    
+
+    public QueuedUnit(int player, Jar_Grid grid, GameObject unitPrefab)
     {
-        this.laneContainer = laneContainer;
         this.player = player;
-        this.laneIndex = laneIndex;
+        this.grid = grid;
         this.unitPrefab = unitPrefab;
         
 

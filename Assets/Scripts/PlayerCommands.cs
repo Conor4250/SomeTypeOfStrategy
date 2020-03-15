@@ -9,7 +9,7 @@ public class PlayerCommands : MonoBehaviour
     public int playerNumber, laneChoice, typeChoice;
     MasterInput controls;
     public ActionMapper mapper;
-    UnitManager unitManager;
+    UnitSpawner unitManager;
     PlayerUI playerUI;
     public int unitTypePage;
     public CommandState commandState;
@@ -18,7 +18,7 @@ public class PlayerCommands : MonoBehaviour
     private void Awake()
     {
         controls = new MasterInput();
-        unitManager = gameObject.GetComponent<UnitManager>();
+        unitManager = gameObject.GetComponent<UnitSpawner>();
         playerUI = gameObject.GetComponent<PlayerUI>();
         unitTypePage = 1;
         laneChoice = 1;

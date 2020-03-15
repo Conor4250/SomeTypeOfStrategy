@@ -8,7 +8,7 @@ public class UnitStateController : MonoBehaviour
     public UnitState currentState, remainState;
     private bool aiActive = false;
     private int currentDamage, currentSpeed, currentRangeMin, currentRangeMax, currentHealth, currentHealthMax, currentPlayer, directionX =1;
-    public Lane currentLane;
+    public Jar_Grid currentGrid;
     public int gridPosX, gridPosY;
     //public LaneContainer laneContainer;
 
@@ -23,8 +23,8 @@ public class UnitStateController : MonoBehaviour
     {
         gridPosX = 0;
         gridPosY = 0;
-        currentLane = queuedUnit.laneContainer.lanes[queuedUnit.laneIndex];
-        gameObject.transform.position = currentLane.GetWorldPosition(0,0);
+        currentGrid = queuedUnit.grid;
+        gameObject.transform.position = currentGrid.GetWorldPosition(0,0);
         currentDamage = unitBaseStats.baseDamage;
         currentHealthMax = unitBaseStats.baseHealth;
         currentRangeMin = unitBaseStats.baseRangeMin;

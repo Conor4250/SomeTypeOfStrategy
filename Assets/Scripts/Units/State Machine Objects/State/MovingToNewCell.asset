@@ -9,6 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25134714102ee442842e5ad8385affd, type: 3}
-  m_Name: EnemyAheadDecision
+  m_Script: {fileID: 11500000, guid: ce17f61b640861d439e9949f1fb12bae, type: 3}
+  m_Name: MovingToNewCell
   m_EditorClassIdentifier: 
+  actions: []
+  transitions:
+  - decision: {fileID: 0}
+    trueState: {fileID: 0}
+    falseState: {fileID: 0}
+  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

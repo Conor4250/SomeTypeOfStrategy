@@ -118,8 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitBaseStats: {fileID: 11400000, guid: c72e3cee441ee1847a20bb7f1f03a86a, type: 2}
-  currentState: {fileID: 11400000, guid: 5ad08193c5176a040925bae1a735c02f, type: 2}
+  currentState: {fileID: 11400000, guid: aebdf41c793ac9d45bf7f8f928cff243, type: 2}
   remainState: {fileID: 11400000, guid: 9126907cc7a7dda42afc3228679cc8f2, type: 2}
   gridPosX: 0
   gridPosY: 0
-  laneContainer: {fileID: 0}

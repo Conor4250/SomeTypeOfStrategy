@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
-    UnitManager unitManager;
+    UnitSpawner unitSpawner;
     PlayerCommands playerCommands;
     TextMeshProUGUI queueInfo, queueStrings, playerState;
     TextMeshProUGUI[] selections = new TextMeshProUGUI[5];
@@ -15,7 +15,7 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
-        unitManager = gameObject.GetComponent<UnitManager>();
+        unitSpawner = gameObject.GetComponent<UnitSpawner>();
         playerCommands = gameObject.GetComponent<PlayerCommands>();
 
         for (int i = 0; i < selections.Length; i++)
@@ -36,29 +36,14 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdatePlayerTextUI()
     {
-<<<<<<< Updated upstream
-        //Debug.Log("UpdatePlayerTextUI");
-        playerInput.text = unitManager.typedLettersToString();
-        if (playerInput.text == "")
-        {
-            UpdatePlayerTextUI("- - - - - - - -");
-        }
-    }
-
-    public void UpdatePlayerTextUI(string text)
-    {
-        //Debug.Log("UpdatePlayerTextUI");
-        playerInput.text = text;
-=======
         
->>>>>>> Stashed changes
     }
 
     public void UpdateQueueUI()
     {
         
-        queueInfo.text = unitManager.UnitQueueInfoToString();
-        queueStrings.text = unitManager.UnitQueueToString();
+        queueInfo.text = unitSpawner.UnitQueueInfoToString();
+        queueStrings.text = unitSpawner.UnitQueueToString();
         if (queueInfo.text == "" ||queueStrings.text == "" )
         {
             UpdateQueueUI("No Queued", "Units");
@@ -73,13 +58,8 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateStateText()
     {
-<<<<<<< Updated upstream
-        playerState.text = playerCommands.commandState.ToString() +" | " + unitManager.unitType[playerCommands.typeChoice -1].name + " - Lane: " + playerCommands.laneChoice;
-        //Debug.Log("UpdateStateUI");
-=======
         playerState.text = playerCommands.commandState.ToString() +" | " + unitSpawner.unitType[playerCommands.typeChoice -1].name + " - Lane: " + playerCommands.laneChoice;
         
->>>>>>> Stashed changes
         
     }
 
@@ -102,21 +82,12 @@ public class PlayerUI : MonoBehaviour
                 selections[4].text = "Return";
                 break;
             case PlayerCommands.CommandState.settingUnitType:
-<<<<<<< Updated upstream
-                
-                selectionOne.text = unitManager.unitType[1*playerCommands.unitTypePage -1].name;
-                selectionTwo.text = unitManager.unitType[2*playerCommands.unitTypePage -1].name;
-                selectionThree.text = unitManager.unitType[3*playerCommands.unitTypePage -1].name;
-                selectionFour.text = "Next";
-                selectionFive.text = "Return";
-=======
 
                 selections[0].text = unitSpawner.unitType[1*playerCommands.unitTypePage -1].name;
                 selections[1].text = unitSpawner.unitType[2*playerCommands.unitTypePage -1].name;
                 selections[2].text = unitSpawner.unitType[3*playerCommands.unitTypePage -1].name;
                 selections[3].text = "Next";
                 selections[4].text = "Return";
->>>>>>> Stashed changes
                 break;
             case PlayerCommands.CommandState.choosingAbility:
                 selections[0].text = "Set Lane 1";

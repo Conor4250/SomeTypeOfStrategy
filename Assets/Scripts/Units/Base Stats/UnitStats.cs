@@ -6,4 +6,13 @@ using UnityEngine;
 public class UnitStats : ScriptableObject
 {
     public int baseDamage, baseSpeed, baseRangeMin, baseRangeMax, baseHealth, baseAttackRate;
+    public AttackType attackType;
+
+    public enum AttackType
+    {
+        standardAttack,
+        wideAttack,
+        longAttack,
+        boxAttack
+    }
 }
