@@ -77,8 +77,12 @@ public class UnitSpawner : MonoBehaviour
 
     public void SpawnUnit(QueuedUnit queuedUnit)
     {
+        Debug.Log(queuedUnit.unitPrefab.name);
+        Debug.Log(queuedUnit.grid);
         GameObject spawnedUnit = Instantiate(queuedUnit.unitPrefab, queuedUnit.grid.spawnCells[playerNumber - 1].GetWorldPosition(), Quaternion.identity);
         UnitStateController unitStateController = spawnedUnit.GetComponent<UnitStateController>();
+        unitStateController.gridPosX = queuedUnit.grid.spawnCells[playerNumber - 1].cellIndexX;
+        unitStateController.gridPosY = queuedUnit.grid.spawnCells[playerNumber - 1].cellIndexY;
         spawnedUnit.SetActive(true);
         unitStateController.Init(queuedUnit);
     }

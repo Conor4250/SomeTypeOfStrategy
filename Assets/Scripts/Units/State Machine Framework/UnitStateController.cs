@@ -5,20 +5,19 @@ using UnityEngine;
 public class UnitStateController : MonoBehaviour
 {
     public UnitStats unitBaseStats;
+    public int currentDamage, currentSpeed, currentRangeMin, currentRangeMax, currentHealth, currentHealthMax, currentPlayer, currentAttackDelay;
+    
     public UnitState currentState, remainState;
     private bool aiActive = false;
-    private int currentDamage, currentSpeed, currentRangeMin, currentRangeMax, currentHealth, currentHealthMax, currentPlayer, directionX =1;
+    public bool movingToNextCell = false;
+    public bool attackReady = true;
+    
     public Jar_Grid currentGrid;
     public int gridPosX, gridPosY;
-    //public LaneContainer laneContainer;
-
-
-    private void Awake()
-    {
-        gridPosX = 0;
-        gridPosY = 0;
-    }
-
+    
+    private int directionX = 1;
+    
+    
     public void Init(QueuedUnit queuedUnit)
     {
         gridPosX = 0;
@@ -30,6 +29,7 @@ public class UnitStateController : MonoBehaviour
         currentRangeMin = unitBaseStats.baseRangeMin;
         currentRangeMax = unitBaseStats.baseRangeMax;
         currentSpeed = unitBaseStats.baseSpeed;
+        currentAttackDelay = unitBaseStats.baseAttackDelay;
         currentPlayer = queuedUnit.player;
         if (currentPlayer == 1)
         {
@@ -52,6 +52,7 @@ public class UnitStateController : MonoBehaviour
         }
         currentState.UpdateState(this);
     }
+
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
@@ -62,7 +63,7 @@ public class UnitStateController : MonoBehaviour
         if (currentState != null)
         {
             Gizmos.color = currentState.sceneGizmoColor;
-            Gizmos.DrawWireSphere(this.transform.position, .5f);
+            Gizmos.DrawWireSphere(transform.position, .5f);
         }
     }
 
@@ -71,20 +72,7 @@ public class UnitStateController : MonoBehaviour
         return directionX;
     }
 
-    public int GetPlayer()
-    {
-        return currentPlayer;
-    }
-
-    public int GetPlayerSpeed()
-    {
-        return currentSpeed;
-    }
-
-    public Vector2 GetRanges()
-    {
-        return new Vector2(currentRangeMin,currentRangeMax);
-    }
+    
 
     public void TransitionToState(UnitState nextState)
     {
@@ -92,5 +80,16 @@ public class UnitStateController : MonoBehaviour
         {
             currentState = nextState;
         }
+    }
+
+    public void StartAttackDelay(UnitStateController controller)
+    {
+        StartCoroutine(attackDelay(controller));
+    }
+
+    IEnumerator attackDelay(UnitStateController controller)
+    {
+        yield return new WaitForSeconds(controller.currentAttackDelay);
+        attackReady = true;
     }
 }

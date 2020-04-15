@@ -14,7 +14,7 @@ public class Jar_Grid
     public Jar_GridContainer parentContainer;
 
 
-    public Jar_GridCell[] spawnCells = new Jar_GridCell[2];
+    public Jar_GridCell[] spawnCells;
 
     public Jar_Grid(int w, int h, float cellSize, Vector3 origin, string gridName, Jar_GridContainer parentContainer)
     {
@@ -25,8 +25,6 @@ public class Jar_Grid
         this.gridName = gridName;
         this.parentContainer = parentContainer;
         gridCellArray = new Jar_GridCell[width, height];
-        spawnCells[0] = gridCellArray[0, height / 2];
-        spawnCells[1] = gridCellArray[width-1, height / 2];
 
         for (int x = 0; x < gridCellArray.GetLength(0); x++)
         {
@@ -37,11 +35,27 @@ public class Jar_Grid
                 gridCellArray[x, y].SetWorldPosition( GetWorldPosition(x, y, GridAnchor.Center) );
                 gridCellArray[x, y].SetParentGrid(this);
             }
-        }        
+        }
+
+        spawnCells = new Jar_GridCell[2];
+
+        if (height == 1)
+        {
+            spawnCells[0] = gridCellArray[0, 0];
+            spawnCells[1] = gridCellArray[width - 1, 0];
+        }
+        else
+        {
+            spawnCells[0] = gridCellArray[0, height / 2];
+            spawnCells[1] = gridCellArray[width - 1, height / 2];
+        }
 
     }
 
-
+    public Jar_GridCell GetCell(int x, int y)
+    {
+        return gridCellArray[x, y];
+    }
 
     public Vector3 GetWorldPosition(int x, int y, GridAnchor gridAnchor)
     {
@@ -73,7 +87,7 @@ public class Jar_Grid
 
     public Vector3 GetWorldPosition(int x, int y)
     {
-        return (new Vector3(x, y) * cellSize + origin);
+        return GetWorldPosition(x, y, GridAnchor.Center);
     }
 
 
