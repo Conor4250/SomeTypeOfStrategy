@@ -5,16 +5,13 @@ using TMPro;
 
 public class Jar_Grid
 {
-    bool showDebug;
+    private bool showDebug;
     public Jar_GridCell[,] gridCellArray;
-    int width, height;
-    float cellSize;
-    Vector3 origin;
+    private int width, height;
+    private float cellSize;
+    private Vector3 origin;
     public string gridName;
     public Jar_GridContainer parentContainer;
-
-
-    public Jar_GridCell[] spawnCells;
 
     public Jar_Grid(int w, int h, float cellSize, Vector3 origin, string gridName, Jar_GridContainer parentContainer)
     {
@@ -32,24 +29,10 @@ public class Jar_Grid
             {
                 gridCellArray[x, y] = new Jar_GridCell();
                 gridCellArray[x, y].SetCellIndex(x, y);
-                gridCellArray[x, y].SetWorldPosition( GetWorldPosition(x, y, GridAnchor.Center) );
+                gridCellArray[x, y].SetWorldPosition(GetWorldPosition(x, y, GridAnchor.Center));
                 gridCellArray[x, y].SetParentGrid(this);
             }
         }
-
-        spawnCells = new Jar_GridCell[2];
-
-        if (height == 1)
-        {
-            spawnCells[0] = gridCellArray[0, 0];
-            spawnCells[1] = gridCellArray[width - 1, 0];
-        }
-        else
-        {
-            spawnCells[0] = gridCellArray[0, height / 2];
-            spawnCells[1] = gridCellArray[width - 1, height / 2];
-        }
-
     }
 
     public Jar_GridCell GetCell(int x, int y)
@@ -63,25 +46,33 @@ public class Jar_Grid
         {
             case (GridAnchor.BottomLeft):
                 return (new Vector3(x, y) * cellSize + origin);
+
             case (GridAnchor.Bottom):
-                return (new Vector3(x, y) * cellSize + origin) + new Vector3(cellSize*0.5f,0);
+                return (new Vector3(x, y) * cellSize + origin) + new Vector3(cellSize * 0.5f, 0);
+
             case (GridAnchor.BottomRight):
                 return (new Vector3(x, y) * cellSize + origin) + new Vector3(cellSize, 0);
+
             case (GridAnchor.Left):
                 return (new Vector3(x, y) * cellSize + origin) + new Vector3(0, cellSize * 0.5f);
+
             case (GridAnchor.Center):
                 return (new Vector3(x, y) * cellSize + origin) + new Vector3(cellSize * 0.5f, cellSize * 0.5f);
+
             case (GridAnchor.Right):
                 return (new Vector3(x, y) * cellSize + origin) + new Vector3(cellSize, cellSize * 0.5f);
+
             case (GridAnchor.TopLeft):
                 return (new Vector3(x, y) * cellSize + origin) + new Vector3(0, cellSize);
+
             case (GridAnchor.Top):
                 return (new Vector3(x, y) * cellSize + origin) + new Vector3(cellSize * 0.5f, cellSize);
+
             case (GridAnchor.TopRight):
                 return (new Vector3(x, y) * cellSize + origin) + new Vector3(cellSize, cellSize);
+
             default:
                 return (new Vector3(x, y) * cellSize + origin);
-
         }
     }
 
@@ -89,9 +80,6 @@ public class Jar_Grid
     {
         return GetWorldPosition(x, y, GridAnchor.Center);
     }
-
-
-
 
     public void AddObject(int x, int y, GameObject objectToAdd)
     {
@@ -138,19 +126,16 @@ public class Jar_Grid
                     int checkX = cell.cellIndexX + x;
                     int checkY = cell.cellIndexY + y;
 
-                    if(checkX >= 0 && checkX < width && checkY >= 0 && checkY < height)
+                    if (checkX >= 0 && checkX < width && checkY >= 0 && checkY < height)
                     {
                         neighbours.Add(gridCellArray[checkX, checkY]);
                     }
-                    
                 }
             }
         }
 
         return neighbours;
-
     }
-
 
     public void MoveObject(int originalX, int originalY, int newX, int newY, UnitStateController controller)
     {
@@ -162,16 +147,10 @@ public class Jar_Grid
         }
     }
 
-
-    
     public void SetShowDebug(bool showDebug)
     {
         this.showDebug = showDebug;
     }
-
-
-
-
 
     public enum GridAnchor
     {

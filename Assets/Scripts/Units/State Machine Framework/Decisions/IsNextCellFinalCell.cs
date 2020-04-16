@@ -12,7 +12,7 @@ public class IsNextCellFinalCell : UnitDecision
 
     private bool NextCellFinalCell(UnitStateController controller)
     {
-        if (controller.currentGrid.GetCell(controller.gridPosX + (1 * controller.GetPlayerDirection()), 0) == controller.currentGrid.spawnCells[1])
+        if (controller.currentGrid.GetCell(controller.gridPosX + (1 * controller.GetPlayerDirection()), 0) == controller.playerManager.playerSpawnCells[controller.laneIndex])
         {
             return true;
         }
@@ -22,4 +22,3 @@ public class IsNextCellFinalCell : UnitDecision
         }
     }
 }
-

@@ -4,44 +4,42 @@ using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
+    public int playerNumber;
+    public PlayerManager playerManager;
+
     //Spawn Points and Unit Types
-    public GameObject[] unitType;
-    PlayerCommands playerCommands;
-    PlayerUI playerUI;
+    public GameObject[] unitTypes;
 
-    int playerNumber = 1;
+    public Jar_GridContainer lanes;
+    public Jar_GridCell[] playerSpawnCells;
 
-    //Queued Units
+    public PlayerUI playerUI;
+
+    //Managed Unit Lists
     public List<QueuedUnit> queuedUnits;
-    List<QueuedUnit> matchedUnits;
 
-    List<QueuedUnit> waitingToSpawn;
+    private List<QueuedUnit> matchedUnits;
+    private List<QueuedUnit> waitingToSpawn;
 
-    List<char> typedLetters;
-    bool typing, foundMatch;
+    //typing info
+    private List<char> typedLetters;
 
-    //Alive Units
-    public Jar_GridContainer gridContainer;
+    private bool typing = false;
 
-    void Start()
+    private void Start()
     {
-        playerUI = gameObject.GetComponent<PlayerUI>();
-        playerCommands = gameObject.GetComponent<PlayerCommands>();
+        //initiialise lists
         queuedUnits = new List<QueuedUnit>();
         matchedUnits = new List<QueuedUnit>();
         waitingToSpawn = new List<QueuedUnit>();
-
-        playerNumber = playerCommands.playerNumber;
-
         typedLetters = new List<char>();
-        typing = false;
     }
 
-    void Update()
+    private void Update()
     {
         if (waitingToSpawn.Count > 0)
         {
-            if (waitingToSpawn[0].grid.GetCellObjects(0,0).Count <=0)
+            if (waitingToSpawn[0].grid.GetCellObjects(0, 0).Count <= 0)
             {
                 SpawnUnit(waitingToSpawn[0]);
                 waitingToSpawn.RemoveAt(0);
@@ -51,8 +49,8 @@ public class UnitSpawner : MonoBehaviour
 
     public void QueueUnit(int laneIndex, int typeIndex)
     {
-        Debug.Log("Queueing Unit: Lane - " + (laneIndex+1) + ", Type - " + (typeIndex+1));
-        QueuedUnit unit = new QueuedUnit(playerNumber, gridContainer.grids[laneIndex], unitType[typeIndex]);
+        Debug.Log("Queueing Unit: Lane - " + (laneIndex + 1) + ", Type - " + (typeIndex + 1));
+        QueuedUnit unit = new QueuedUnit(playerManager, laneIndex, lanes.grids[laneIndex], unitTypes[typeIndex]);
         queuedUnits.Add(unit);
         playerUI.UpdatePlayerTextUI();
         playerUI.UpdateQueueUI();
@@ -63,7 +61,7 @@ public class UnitSpawner : MonoBehaviour
         matchedUnits.Clear();
         typedLetters.Clear();
         typing = false;
-        if (queuedUnit.grid.spawnCells[playerNumber - 1] == null)
+        if (playerSpawnCells[queuedUnit.laneIndex].cellObjects.Count == 0)
         {
             SpawnUnit(queuedUnit);
         }
@@ -71,30 +69,19 @@ public class UnitSpawner : MonoBehaviour
         {
             waitingToSpawn.Add(queuedUnit);
         }
-        
+
         queuedUnits.Remove(queuedUnit);
     }
 
     public void SpawnUnit(QueuedUnit queuedUnit)
     {
-        Debug.Log(queuedUnit.unitPrefab.name);
-        Debug.Log(queuedUnit.grid);
-        GameObject spawnedUnit = Instantiate(queuedUnit.unitPrefab, queuedUnit.grid.spawnCells[playerNumber - 1].GetWorldPosition(), Quaternion.identity);
-        UnitStateController unitStateController = spawnedUnit.GetComponent<UnitStateController>();
-        unitStateController.gridPosX = queuedUnit.grid.spawnCells[playerNumber - 1].cellIndexX;
-        unitStateController.gridPosY = queuedUnit.grid.spawnCells[playerNumber - 1].cellIndexY;
+        GameObject spawnedUnit = Instantiate(queuedUnit.unitPrefab, playerSpawnCells[queuedUnit.laneIndex].GetWorldPosition(), Quaternion.identity);
+        var unitStateController = spawnedUnit.GetComponent<UnitStateController>();
+        unitStateController.gridPosX = playerSpawnCells[queuedUnit.laneIndex].cellIndexX;
+        unitStateController.gridPosY = playerSpawnCells[queuedUnit.laneIndex].cellIndexY;
         spawnedUnit.SetActive(true);
         unitStateController.Init(queuedUnit);
     }
-
-
-
-
-
-
-
-
-
 
     public void ScanQueueForChar(char input)
     {

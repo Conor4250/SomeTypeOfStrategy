@@ -6,31 +6,32 @@ public class UnitStateController : MonoBehaviour
 {
     public UnitStats unitBaseStats;
     public int currentDamage, currentSpeed, currentRangeMin, currentRangeMax, currentHealth, currentHealthMax, currentPlayer, currentAttackDelay;
-    
+    public PlayerManager playerManager;
+
     public UnitState currentState, remainState;
     private bool aiActive = false;
     public bool movingToNextCell = false;
     public bool attackReady = true;
-    
+
     public Jar_Grid currentGrid;
-    public int gridPosX, gridPosY;
-    
+    public int gridPosX, gridPosY, laneIndex;
+
     private int directionX = 1;
-    
-    
+
     public void Init(QueuedUnit queuedUnit)
     {
         gridPosX = 0;
         gridPosY = 0;
         currentGrid = queuedUnit.grid;
-        gameObject.transform.position = currentGrid.GetWorldPosition(0,0);
+        laneIndex = queuedUnit.laneIndex;
+        gameObject.transform.position = currentGrid.GetWorldPosition(0, 0);
         currentDamage = unitBaseStats.baseDamage;
         currentHealthMax = unitBaseStats.baseHealth;
         currentRangeMin = unitBaseStats.baseRangeMin;
         currentRangeMax = unitBaseStats.baseRangeMax;
         currentSpeed = unitBaseStats.baseSpeed;
         currentAttackDelay = unitBaseStats.baseAttackDelay;
-        currentPlayer = queuedUnit.player;
+        currentPlayer = queuedUnit.playerManager.playerNumber;
         if (currentPlayer == 1)
         {
             directionX = 1;
@@ -41,7 +42,6 @@ public class UnitStateController : MonoBehaviour
         }
         currentHealth = currentHealthMax;
         aiActive = true;
-        
     }
 
     private void Update()
@@ -72,8 +72,6 @@ public class UnitStateController : MonoBehaviour
         return directionX;
     }
 
-    
-
     public void TransitionToState(UnitState nextState)
     {
         if (nextState != remainState)
@@ -87,7 +85,7 @@ public class UnitStateController : MonoBehaviour
         StartCoroutine(attackDelay(controller));
     }
 
-    IEnumerator attackDelay(UnitStateController controller)
+    private IEnumerator attackDelay(UnitStateController controller)
     {
         yield return new WaitForSeconds(controller.currentAttackDelay);
         attackReady = true;

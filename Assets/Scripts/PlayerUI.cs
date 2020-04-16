@@ -6,14 +6,14 @@ using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
-    UnitSpawner unitSpawner;
-    PlayerCommands playerCommands;
-    TextMeshProUGUI queueInfo, queueStrings, playerState;
-    TextMeshProUGUI[] selections = new TextMeshProUGUI[5];
+    private UnitSpawner unitSpawner;
+    private PlayerCommands playerCommands;
+    private TextMeshProUGUI queueInfo, queueStrings, playerState;
+    private TextMeshProUGUI[] selections = new TextMeshProUGUI[5];
 
     public GameObject playerCanvas;
 
-    void Start()
+    private void InitialiseUI()
     {
         unitSpawner = gameObject.GetComponent<UnitSpawner>();
         playerCommands = gameObject.GetComponent<PlayerCommands>();
@@ -26,8 +26,6 @@ public class PlayerUI : MonoBehaviour
         queueInfo = playerCanvas.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
         queueStrings = playerCanvas.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-
-
         UpdateQueueUI();
         UpdatePlayerTextUI();
         UpdateSelectionUI();
@@ -36,15 +34,13 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdatePlayerTextUI()
     {
-        
     }
 
     public void UpdateQueueUI()
     {
-        
         queueInfo.text = unitSpawner.UnitQueueInfoToString();
         queueStrings.text = unitSpawner.UnitQueueToString();
-        if (queueInfo.text == "" ||queueStrings.text == "" )
+        if (queueInfo.text == "" || queueStrings.text == "")
         {
             UpdateQueueUI("No Queued", "Units");
         }
@@ -58,9 +54,7 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateStateText()
     {
-        playerState.text = playerCommands.commandState.ToString() +" | " + unitSpawner.unitType[playerCommands.typeChoice -1].name + " - Lane: " + playerCommands.laneChoice;
-        
-        
+        playerState.text = playerCommands.commandState.ToString() + " | " + unitSpawner.unitTypes[playerCommands.typeChoice - 1].name + " - Lane: " + playerCommands.laneChoice;
     }
 
     public void UpdateSelectionUI()
@@ -74,6 +68,7 @@ public class PlayerUI : MonoBehaviour
                 selections[3].text = "Choose Upgrade";
                 selections[4].text = "Return";
                 break;
+
             case PlayerCommands.CommandState.settingUnitLane:
                 selections[0].text = "Set Lane 1";
                 selections[1].text = "Set Lane 2";
@@ -81,14 +76,16 @@ public class PlayerUI : MonoBehaviour
                 selections[3].text = "Set Lane Auto";
                 selections[4].text = "Return";
                 break;
+
             case PlayerCommands.CommandState.settingUnitType:
 
-                selections[0].text = unitSpawner.unitType[1*playerCommands.unitTypePage -1].name;
-                selections[1].text = unitSpawner.unitType[2*playerCommands.unitTypePage -1].name;
-                selections[2].text = unitSpawner.unitType[3*playerCommands.unitTypePage -1].name;
+                selections[0].text = unitSpawner.unitTypes[1 * playerCommands.unitTypePage - 1].name;
+                selections[1].text = unitSpawner.unitTypes[2 * playerCommands.unitTypePage - 1].name;
+                selections[2].text = unitSpawner.unitTypes[3 * playerCommands.unitTypePage - 1].name;
                 selections[3].text = "Next";
                 selections[4].text = "Return";
                 break;
+
             case PlayerCommands.CommandState.choosingAbility:
                 selections[0].text = "Set Lane 1";
                 selections[1].text = "Set Lane 2";
@@ -96,6 +93,7 @@ public class PlayerUI : MonoBehaviour
                 selections[3].text = "Set Lane Auto";
                 selections[4].text = "Return";
                 break;
+
             case PlayerCommands.CommandState.choosingUpgrade:
                 selections[0].text = "Set Lane 1";
                 selections[1].text = "Set Lane 2";
@@ -104,11 +102,9 @@ public class PlayerUI : MonoBehaviour
                 selections[4].text = "Return";
                 break;
 
-
             default:
                 break;
         }
         UpdateStateText();
     }
-
 }

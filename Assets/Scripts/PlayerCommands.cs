@@ -7,14 +7,20 @@ using StandardUtilities.ScriptableValues;
 public class PlayerCommands : MonoBehaviour
 {
     public int playerNumber, laneChoice, typeChoice;
-    MasterInput controls;
+    public PlayerManager playerManager;
+
+    private MasterInput controls;
     public ActionMapper mapper;
-    UnitSpawner unitManager;
-    PlayerUI playerUI;
+
+    private UnitSpawner unitManager;
+
+    private PlayerUI playerUI;
     public int unitTypePage;
     public CommandState commandState;
-    bool queueBlock = false;
-    bool randomLane = false;
+
+    private bool queueBlock = false;
+    private bool randomLane = false;
+
     private void Awake()
     {
         controls = new MasterInput();
@@ -23,11 +29,6 @@ public class PlayerCommands : MonoBehaviour
         unitTypePage = 1;
         laneChoice = 1;
         typeChoice = 1;
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void onAction(InputAction.CallbackContext ctx)
@@ -86,26 +87,28 @@ public class PlayerCommands : MonoBehaviour
             case CommandState.defaultState:
                 ProcessDefaultState(command);
                 break;
+
             case CommandState.settingUnitLane:
                 SetUnitLane(command);
                 break;
+
             case CommandState.settingUnitType:
                 SetUnitType(command);
                 break;
+
             case CommandState.choosingAbility:
                 ChooseAbility(command);
                 break;
+
             case CommandState.choosingUpgrade:
                 ChooseUpgrade(command);
                 break;
 
-
             default:
                 break;
         }
-        //Debug.Log(commandState);
     }
-    
+
     private void ProcessDefaultState(int command)
     {
         switch (command)
@@ -117,30 +120,31 @@ public class PlayerCommands : MonoBehaviour
                     {
                         laneChoice = (int)Random.Range(1, 4);
                     }
-                    unitManager.QueueUnit(laneChoice - 1, typeChoice-1);
+                    unitManager.QueueUnit(laneChoice - 1, typeChoice - 1);
                     queueBlock = true;
                     StartCoroutine(queuePause());
                 }
                 break;
+
             case 2:
                 SetCommandState(CommandState.settingUnitLane);
                 break;
+
             case 3:
                 SetCommandState(CommandState.settingUnitType);
                 break;
+
             case 4:
                 SetCommandState(CommandState.choosingAbility);
                 break;
+
             case 5:
-                //SetCommandState(CommandState.choosingUpgrade);
                 unitManager.PrepareUnit(unitManager.queuedUnits[0]);
                 break;
 
             default:
                 break;
         }
-
-        //Debug.Log(command);
     }
 
     private void SetUnitLane(int command)
@@ -151,19 +155,23 @@ public class PlayerCommands : MonoBehaviour
                 laneChoice = 1;
                 ResetState();
                 break;
+
             case 2:
                 laneChoice = 2;
                 ResetState();
                 break;
+
             case 3:
                 laneChoice = 3;
                 randomLane = false;
                 ResetState();
                 break;
+
             case 4:
                 randomLane = true;
                 ResetState();
                 break;
+
             case 5:
                 ResetState();
                 break;
@@ -171,8 +179,6 @@ public class PlayerCommands : MonoBehaviour
             default:
                 break;
         }
-        //Debug.Log("Expected: " + "| Current: " + laneChoice);
-        //Debug.Log(command);
     }
 
     private void SetUnitType(int command)
@@ -183,17 +189,21 @@ public class PlayerCommands : MonoBehaviour
                 typeChoice = 1 * unitTypePage;
                 ResetState();
                 break;
+
             case 2:
                 typeChoice = 2 * unitTypePage;
                 ResetState();
                 break;
+
             case 3:
                 typeChoice = 3 * unitTypePage;
                 ResetState();
                 break;
+
             case 4:
                 unitTypePage++;
                 break;
+
             case 5:
                 unitTypePage = 1;
                 ResetState();
@@ -202,8 +212,6 @@ public class PlayerCommands : MonoBehaviour
             default:
                 break;
         }
-
-        //Debug.Log("Expected: " + "| Current: " + typeChoice);
     }
 
     private void ChooseAbility(int command)
@@ -213,15 +221,19 @@ public class PlayerCommands : MonoBehaviour
             case 1:
                 ResetState();
                 break;
+
             case 2:
                 ResetState();
                 break;
+
             case 3:
                 ResetState();
                 break;
+
             case 4:
                 ResetState();
                 break;
+
             case 5:
                 ResetState();
                 break;
@@ -229,8 +241,6 @@ public class PlayerCommands : MonoBehaviour
             default:
                 break;
         }
-
-        //Debug.Log(command);
     }
 
     private void ChooseUpgrade(int command)
@@ -240,15 +250,19 @@ public class PlayerCommands : MonoBehaviour
             case 1:
                 ResetState();
                 break;
+
             case 2:
                 ResetState();
                 break;
+
             case 3:
                 ResetState();
                 break;
+
             case 4:
                 ResetState();
                 break;
+
             case 5:
 
                 ResetState();
@@ -257,8 +271,6 @@ public class PlayerCommands : MonoBehaviour
             default:
                 break;
         }
-
-        //Debug.Log(command);
     }
 
     public void SetCommandState(CommandState commandState)
@@ -271,20 +283,18 @@ public class PlayerCommands : MonoBehaviour
     private void ResetState()
     {
         commandState = CommandState.defaultState;
-        //Debug.Log("Expected: " + "| Current: " + laneChoice + " " + typeChoice);
         playerUI.UpdateStateText();
         playerUI.UpdateSelectionUI();
     }
 
-    IEnumerator queuePause()
+    private IEnumerator queuePause()
     {
         yield return new WaitForSeconds(2);
         queueBlock = false;
     }
-    
+
     public enum CommandState
     {
-
         defaultState,
         settingUnitLane,
         settingUnitType,
@@ -292,6 +302,4 @@ public class PlayerCommands : MonoBehaviour
         choosingAbility,
         choosingUpgrade
     }
-
-
 }
