@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/EnemyStats")]
 public class UnitStats : ScriptableObject
 {
-    public int baseDamage, baseSpeed, baseRangeMin, baseRangeMax, baseHealth, baseAttackDelay;
+    public int baseDamage, baseRangeMin, baseRangeMax, baseHealth, baseAttackDelay;
+    public float baseSpeed;
 
     public AttackType attackType;
 

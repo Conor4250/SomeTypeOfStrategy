@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,14 +13,13 @@ public class IsNextCellOccupied : UnitDecision
 
     private bool NextCellOccupied(UnitStateController controller)
     {
-        if (controller.currentGrid.GetCellObjects(controller.gridPosX + 1*controller.GetPlayerDirection(), 0).Count > 0)
+        if (controller.GetNextCell().GetEndCell())
         {
             return true;
         }
         else
         {
-            return false;
+            return controller.GetNextCell().ContainsUnit();
         }
     }
 }
-

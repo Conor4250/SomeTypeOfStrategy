@@ -1,37 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitStateController : MonoBehaviour
 {
-    public UnitStats unitBaseStats;
-    public int currentDamage, currentSpeed, currentRangeMin, currentRangeMax, currentHealth, currentHealthMax, currentPlayer, currentAttackDelay;
     public PlayerManager playerManager;
 
+    public UnitStats unitBaseStats;
+    public UnitStats.AttackType attackType;
+    public int currentDamage, currentRangeMin, currentRangeMax, currentHealth, currentHealthMax, currentPlayer, currentAttackDelay;
+    public float currentSpeed;
+
     public UnitState currentState, remainState;
-    private bool aiActive = false;
+    public bool aiActive = false;
     public bool movingToNextCell = false;
     public bool attackReady = true;
 
-    public Jar_Grid currentGrid;
-    public int gridPosX, gridPosY, laneIndex;
+    private Jar_Grid currentGrid;
+
+    private Jar_GridCell previousCell, currentCell, nextCell;
+    private int gridPosX, gridPosY, laneIndex;
 
     private int directionX = 1;
 
     public void Init(QueuedUnit queuedUnit)
     {
-        gridPosX = 0;
-        gridPosY = 0;
         currentGrid = queuedUnit.grid;
-        laneIndex = queuedUnit.laneIndex;
-        gameObject.transform.position = currentGrid.GetWorldPosition(0, 0);
-        currentDamage = unitBaseStats.baseDamage;
-        currentHealthMax = unitBaseStats.baseHealth;
-        currentRangeMin = unitBaseStats.baseRangeMin;
-        currentRangeMax = unitBaseStats.baseRangeMax;
-        currentSpeed = unitBaseStats.baseSpeed;
-        currentAttackDelay = unitBaseStats.baseAttackDelay;
-        currentPlayer = queuedUnit.playerManager.playerNumber;
+        laneIndex = currentGrid.GridIndex;
+        playerManager = queuedUnit.playerManager;
+        currentPlayer = playerManager.playerNumber;
+
         if (currentPlayer == 1)
         {
             directionX = 1;
@@ -40,8 +39,27 @@ public class UnitStateController : MonoBehaviour
         {
             directionX = -1;
         }
+
+        SetCurrentCell(playerManager.playerSpawnCells[laneIndex]);
+        SetWorldPosition(currentCell.GetWorldPosition());
+        InitialiseStats(unitBaseStats);
+
+        playerManager = queuedUnit.playerManager;
+        currentPlayer = queuedUnit.playerManager.playerNumber;
+
         currentHealth = currentHealthMax;
         aiActive = true;
+    }
+
+    private void InitialiseStats(UnitStats unitBaseStats)
+    {
+        attackType = unitBaseStats.attackType;
+        currentDamage = unitBaseStats.baseDamage;
+        currentHealthMax = unitBaseStats.baseHealth;
+        currentRangeMin = unitBaseStats.baseRangeMin;
+        currentRangeMax = unitBaseStats.baseRangeMax;
+        currentSpeed = unitBaseStats.baseSpeed;
+        currentAttackDelay = unitBaseStats.baseAttackDelay;
     }
 
     private void Update()
@@ -51,6 +69,8 @@ public class UnitStateController : MonoBehaviour
             return;
         }
         currentState.UpdateState(this);
+
+        transform.position = Vector3.MoveTowards(transform.position, currentGrid.GetWorldPosition(gridPosX, gridPosY), currentSpeed);
     }
 
     public void takeDamage(int damage)
@@ -58,18 +78,64 @@ public class UnitStateController : MonoBehaviour
         currentHealth -= damage;
     }
 
-    private void OnDrawGizmos()
+    public int DirectionX
     {
-        if (currentState != null)
+        get
         {
-            Gizmos.color = currentState.sceneGizmoColor;
-            Gizmos.DrawWireSphere(transform.position, .5f);
+            return directionX;
+        }
+        set
+        {
+            directionX = value;
         }
     }
 
-    public int GetPlayerDirection()
+    public void SetWorldPosition(Vector3 newPosition)
     {
-        return directionX;
+        transform.position = newPosition;
+    }
+
+    public void SetCurrentCell(Jar_GridCell newCell)
+    {
+        if (currentCell != null)
+        {
+            currentCell.RemoveUnit();
+        }
+        currentCell = newCell;
+        currentCell.AddUnit(this);
+
+        nextCell = currentCell.GetNeighbourCell(directionX);
+        previousCell = currentCell.GetNeighbourCell(-directionX);
+
+        gridPosX = currentCell.cellIndexX;
+        gridPosY = currentCell.cellIndexY;
+    }
+
+    public Jar_GridCell GetCurrentCell()
+    {
+        return currentCell;
+    }
+
+    public Jar_GridCell GetNextCell()
+    {
+        return nextCell;
+    }
+
+    public Jar_GridCell GetPreviousCell()
+    {
+        return previousCell;
+    }
+
+    public Jar_Grid CurrentGrid
+    {
+        get
+        {
+            return currentGrid;
+        }
+        set
+        {
+            currentGrid = value;
+        }
     }
 
     public void TransitionToState(UnitState nextState)
@@ -80,14 +146,23 @@ public class UnitStateController : MonoBehaviour
         }
     }
 
-    public void StartAttackDelay(UnitStateController controller)
+    public void StartAttackDelay()
     {
-        StartCoroutine(attackDelay(controller));
+        StartCoroutine(attackDelay());
     }
 
-    private IEnumerator attackDelay(UnitStateController controller)
+    private IEnumerator attackDelay()
     {
-        yield return new WaitForSeconds(controller.currentAttackDelay);
+        yield return new WaitForSeconds(currentAttackDelay);
         attackReady = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (currentState != null)
+        {
+            Gizmos.color = currentState.sceneGizmoColor;
+            Gizmos.DrawWireSphere(transform.position, .5f);
+        }
     }
 }

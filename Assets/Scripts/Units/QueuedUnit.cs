@@ -5,21 +5,20 @@ using UnityEngine;
 
 public class QueuedUnit
 {
-    public string spawnString;
-    public List<Char> spawnChars;
     public Jar_Grid grid;
     public GameObject unitPrefab;
-    public int laneIndex, playerNumber = 1;
     public PlayerManager playerManager;
 
-    public QueuedUnit(PlayerManager playerManager, int laneIndex, Jar_Grid grid, GameObject unitPrefab)
+    public string spawnString;
+    public List<Char> spawnChars;
+
+    public QueuedUnit(PlayerManager playerManager, Jar_Grid grid, GameObject unitPrefab)
     {
         this.playerManager = playerManager;
-        this.laneIndex = laneIndex;
         this.grid = grid;
         this.unitPrefab = unitPrefab;
 
-        StringGenerator strGen = new StringGenerator(playerNumber);
+        StringGenerator strGen = new StringGenerator(playerManager.playerNumber);
         spawnString = strGen.CalculateSpawnString(3);
 
         spawnChars = new List<Char>();

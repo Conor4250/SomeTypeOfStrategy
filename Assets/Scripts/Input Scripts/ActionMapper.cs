@@ -9,24 +9,18 @@ public class ActionMapper : MonoBehaviour
     public string validInputs;
     private List<InputAction> inputActions;
 
-
-    private void Awake()
+    public void initialiseInputs()
     {
         inputActions = new List<InputAction>();
         MapInputs(validInputs);
     }
 
-    private string SanitizeString(string s)
+    private void MapInputs(string validInputs)
     {
-        return string.Join("", s.ToCharArray().Distinct());
-    }
+        validInputs = SanitizeString(validInputs);
+        char[] c = validInputs.ToCharArray();
 
-    private void MapInputs(string s)
-    {
-        s = SanitizeString(s);
-        char[] c = s.ToCharArray();
-
-        for(int i = 0; i < c.Length; i++)
+        for (int i = 0; i < c.Length; i++)
         {
             inputActions.Add(new InputAction(c[i] + "", binding: "<Keyboard>/" + c[i]));
 
@@ -35,14 +29,20 @@ public class ActionMapper : MonoBehaviour
             //Debug.Log(inputActions[i]);
         }
     }
-    
+
+    private string SanitizeString(string s)
+    {
+        return string.Join("", s.ToCharArray().Distinct());
+    }
+
     public void SubscribeToAnyKey(System.Action<InputAction.CallbackContext> func)
     {
-        for(int i = 0; i < inputActions.Count; i++)
+        for (int i = 0; i < inputActions.Count; i++)
         {
             inputActions[i].performed += func;
         }
     }
+
     public void UnsubscribeToAnyKey(System.Action<InputAction.CallbackContext> func)
     {
         for (int i = 0; i < inputActions.Count; i++)

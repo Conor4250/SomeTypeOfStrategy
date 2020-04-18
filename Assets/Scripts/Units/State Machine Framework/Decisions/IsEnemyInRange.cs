@@ -14,13 +14,13 @@ public class IsEnemyInRange : UnitDecision
     {
         for (int i = controller.currentRangeMin; i < controller.currentRangeMax; i++)
         {
-            if (controller.currentGrid.GetCellObjects(controller.gridPosX + i*controller.GetPlayerDirection(), 0).Count > 0)
+            if (controller.CurrentGrid.GetCell(controller.GetCurrentCell().cellIndexX + (i * controller.DirectionX), 0).ContainsUnit())
             {
+                Debug.Log("EnemyInRange - true ");
                 return true;
             }
         }
-
+        Debug.Log("EnemyInRange - false");
         return false;
     }
 }
-

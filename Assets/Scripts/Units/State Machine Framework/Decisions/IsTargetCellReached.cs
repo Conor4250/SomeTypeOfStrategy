@@ -12,13 +12,16 @@ public class IsTargetCellReached : UnitDecision
 
     private bool TargetCellReached(UnitStateController controller)
     {
-        if (Vector3.Distance(controller.gameObject.transform.position, controller.currentGrid.GetWorldPosition(controller.gridPosX, controller.gridPosY)) == 0)
+        if (Vector3.Distance(controller.gameObject.transform.position, controller.GetCurrentCell().GetWorldPosition()) == 0)
         {
             controller.movingToNextCell = false;
+            Debug.Log("target cell is reached - true");
             return true;
         }
         else
         {
+            controller.movingToNextCell = true;
+            Debug.Log("target cell is reached - false");
             return false;
         }
     }

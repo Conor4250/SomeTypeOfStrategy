@@ -6,7 +6,7 @@ using StandardUtilities.ScriptableValues;
 
 public class PlayerCommands : MonoBehaviour
 {
-    public int playerNumber, laneChoice, typeChoice;
+    public int laneChoice, typeChoice;
     public PlayerManager playerManager;
 
     private MasterInput controls;
@@ -23,12 +23,18 @@ public class PlayerCommands : MonoBehaviour
 
     private void Awake()
     {
+        playerManager = gameObject.GetComponent<PlayerManager>();
         controls = new MasterInput();
-        unitManager = gameObject.GetComponent<UnitSpawner>();
-        playerUI = gameObject.GetComponent<PlayerUI>();
+        mapper = gameObject.GetComponent<ActionMapper>();
         unitTypePage = 1;
         laneChoice = 1;
         typeChoice = 1;
+    }
+
+    public void lateInit()
+    {
+        unitManager = gameObject.GetComponent<UnitSpawner>();
+        playerUI = gameObject.GetComponent<PlayerUI>();
     }
 
     private void onAction(InputAction.CallbackContext ctx)
@@ -36,7 +42,7 @@ public class PlayerCommands : MonoBehaviour
         var buttonPressed = ctx.control.name;
         int commandInt = int.Parse(buttonPressed);
 
-        if (playerNumber == 2)
+        if (playerManager.playerNumber == 2)
         {
             commandInt -= 5;
         }
@@ -48,7 +54,7 @@ public class PlayerCommands : MonoBehaviour
     {
         mapper.SubscribeToAnyKey(ProcessAnyKey);
         controls.Enable();
-        if (playerNumber == 1)
+        if (playerManager.playerNumber == 1)
         {
             controls.InGame.Action1.performed += onAction;
             controls.InGame.Action2.performed += onAction;
@@ -86,22 +92,27 @@ public class PlayerCommands : MonoBehaviour
         {
             case CommandState.defaultState:
                 ProcessDefaultState(command);
+                Debug.Log("ProcessDefaultState(command);");
                 break;
 
             case CommandState.settingUnitLane:
                 SetUnitLane(command);
+                Debug.Log("SetUnitLane(command);");
                 break;
 
             case CommandState.settingUnitType:
                 SetUnitType(command);
+                Debug.Log("SetUnitType(command);");
                 break;
 
             case CommandState.choosingAbility:
                 ChooseAbility(command);
+                Debug.Log("ChooseAbility(command);");
                 break;
 
             case CommandState.choosingUpgrade:
                 ChooseUpgrade(command);
+                Debug.Log("ChooseUpgrade(command);");
                 break;
 
             default:

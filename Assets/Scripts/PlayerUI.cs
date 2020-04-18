@@ -13,8 +13,9 @@ public class PlayerUI : MonoBehaviour
 
     public GameObject playerCanvas;
 
-    private void InitialiseUI()
+    public void InitialiseUI(GameObject canvas)
     {
+        playerCanvas = canvas;
         unitSpawner = gameObject.GetComponent<UnitSpawner>();
         playerCommands = gameObject.GetComponent<PlayerCommands>();
 

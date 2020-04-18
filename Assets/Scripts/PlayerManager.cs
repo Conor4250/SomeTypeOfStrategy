@@ -7,53 +7,41 @@ public class PlayerManager : MonoBehaviour
     public int playerNumber;
 
     private ManagerSingleton gameManager;
+    public PlayerManager enemyManager;
     private int playerHealth;
     private string playerName;
+
+    public GameObject playerUICanvas;
 
     public Jar_GridContainer lanes;
     public Jar_GridCell[] playerSpawnCells;
 
-    public void initialisePlayer(ManagerSingleton gameManager, int playerNumber, string playerName, int startingHealth, Jar_GridContainer lanes, string playerKeys, GameObject[] unitTypes)
+    public void initialisePlayer(ManagerSingleton gameManager, int playerNumber, string playerName, int startingHealth, Jar_GridContainer lanes, string playerKeys, GameObject[] unitTypes, GameObject playerUICanvas, Jar_GridCell[] playerSpawnCells)
     {
         this.gameManager = gameManager;
         this.playerNumber = playerNumber;
         this.playerName = playerName;
         playerHealth = startingHealth;
         this.lanes = lanes;
+        this.playerUICanvas = playerUICanvas;
+        this.playerSpawnCells = playerSpawnCells;
+
+        var mapper = gameObject.AddComponent<ActionMapper>();
+        mapper.validInputs = playerKeys;
+        mapper.initialiseInputs();
 
         var commands = gameObject.AddComponent<PlayerCommands>();
-        var mapper = gameObject.AddComponent<ActionMapper>();
+
         var spawner = gameObject.AddComponent<UnitSpawner>();
-        var ui = gameObject.AddComponent<PlayerUI>();
-
-        commands.playerManager = this;
-        commands.mapper = mapper;
-
-        mapper.validInputs = playerKeys;
-
-        spawner.playerManager = this;
         spawner.unitTypes = unitTypes;
         spawner.lanes = lanes;
-        spawner.playerSpawnCells = playerSpawnCells;
-        spawner.playerUI = ui;
+        spawner.lateInit();
 
-        //assign spawn cells
-        if (playerNumber == 1)
-        {
-            playerSpawnCells = new Jar_GridCell[lanes.laneCount];
-            for (int i = 0; i < playerSpawnCells.Length; i++)
-            {
-                playerSpawnCells[i] = lanes.grids[i].gridCellArray[0, 0];
-            }
-        }
-        else
-        {
-            playerSpawnCells = new Jar_GridCell[lanes.laneCount];
-            for (int i = 0; i < playerSpawnCells.Length; i++)
-            {
-                playerSpawnCells[i] = lanes.grids[i].gridCellArray[lanes.gridWidth - 1, 0];
-            }
-        }
+        var ui = gameObject.AddComponent<PlayerUI>();
+        ui.InitialiseUI(playerUICanvas);
+
+        commands.lateInit();
+        spawner.playerSpawnCells = playerSpawnCells;
     }
 
     public void damagePlayer(int amount)

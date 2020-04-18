@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MeleeStats
   m_EditorClassIdentifier: 
   baseDamage: 20
-  baseSpeed: 5
   baseRangeMin: 0
   baseRangeMax: 0
   baseHealth: 100
-  baseAttackRate: 0
+  baseAttackDelay: 0
+  baseSpeed: 0.01
+  attackType: 0

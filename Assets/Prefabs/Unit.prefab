@@ -72,12 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 1246012485
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 465413831b011f64d9d93000263d5cd2, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6666667, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -117,7 +117,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitBaseStats: {fileID: 11400000, guid: c72e3cee441ee1847a20bb7f1f03a86a, type: 2}
-  currentState: {fileID: 11400000, guid: aebdf41c793ac9d45bf7f8f928cff243, type: 2}
-  remainState: {fileID: 11400000, guid: 9126907cc7a7dda42afc3228679cc8f2, type: 2}
+  currentDamage: 0
+  currentRangeMin: 0
+  currentRangeMax: 0
+  currentHealth: 0
+  currentHealthMax: 0
+  currentPlayer: 0
+  currentAttackDelay: 0
+  currentSpeed: 0
+  playerManager: {fileID: 0}
+  currentState: {fileID: 11400000, guid: 39e2f995858d8aa47b6b7b541ef19c79, type: 2}
+  remainState: {fileID: 11400000, guid: 8afa0340b9560ad42829a25417850b1c, type: 2}
+  movingToNextCell: 0
+  attackReady: 1
   gridPosX: 0
   gridPosY: 0
+  laneIndex: 0

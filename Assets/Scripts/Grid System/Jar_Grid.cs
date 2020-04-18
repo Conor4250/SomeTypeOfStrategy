@@ -6,15 +6,17 @@ using TMPro;
 public class Jar_Grid
 {
     private bool showDebug;
-    public Jar_GridCell[,] gridCellArray;
+    private Jar_GridCell[,] gridCellArray;
     private int width, height;
     private float cellSize;
+    private int gridIndex;
     private Vector3 origin;
-    public string gridName;
-    public Jar_GridContainer parentContainer;
+    private string gridName;
+    private Jar_GridContainer parentContainer;
 
-    public Jar_Grid(int w, int h, float cellSize, Vector3 origin, string gridName, Jar_GridContainer parentContainer)
+    public Jar_Grid(int index, int w, int h, float cellSize, Vector3 origin, string gridName, Jar_GridContainer parentContainer)
     {
+        gridIndex = index;
         width = w;
         height = h;
         this.cellSize = cellSize;
@@ -27,17 +29,20 @@ public class Jar_Grid
         {
             for (int y = 0; y < gridCellArray.GetLength(1); y++)
             {
-                gridCellArray[x, y] = new Jar_GridCell();
-                gridCellArray[x, y].SetCellIndex(x, y);
-                gridCellArray[x, y].SetWorldPosition(GetWorldPosition(x, y, GridAnchor.Center));
-                gridCellArray[x, y].SetParentGrid(this);
+                bool endCell = false;
+
+                if (x == 0 || x == w - 1)
+                {
+                    endCell = true;
+                }
+                else
+                {
+                    endCell = false;
+                }
+
+                gridCellArray[x, y] = new Jar_GridCell(this, x, y, GetWorldPosition(x, y, GridAnchor.Center), endCell);
             }
         }
-    }
-
-    public Jar_GridCell GetCell(int x, int y)
-    {
-        return gridCellArray[x, y];
     }
 
     public Vector3 GetWorldPosition(int x, int y, GridAnchor gridAnchor)
@@ -81,19 +86,20 @@ public class Jar_Grid
         return GetWorldPosition(x, y, GridAnchor.Center);
     }
 
-    public void AddObject(int x, int y, GameObject objectToAdd)
+    public void AddUnit(int x, int y, UnitStateController unit)
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
-            gridCellArray[x, y].AddObject(objectToAdd);
+            unit.GetCurrentCell().RemoveUnit();
+            unit.SetCurrentCell(gridCellArray[x, y]);
         }
     }
 
-    public List<GameObject> GetCellObjects(int x, int y)
+    public UnitStateController GetUnit(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
-            return gridCellArray[x, y].GetObjects();
+            return gridCellArray[x, y].GetUnit();
         }
         else
         {
@@ -101,56 +107,59 @@ public class Jar_Grid
         }
     }
 
-    public List<GameObject> GetCellObjects(Vector3 worldPosition)
+    public Jar_GridCell GetCell(int x, int y)
     {
-        int x, y;
-        x = Mathf.RoundToInt((worldPosition.x / cellSize) - origin.x);
-        y = Mathf.RoundToInt((worldPosition.y / cellSize) - origin.y);
-        return GetCellObjects(x, y);
-    }
-
-    public List<Jar_GridCell> GetNeighbours(Jar_GridCell cell)
-    {
-        List<Jar_GridCell> neighbours = new List<Jar_GridCell>();
-
-        for (int x = -1; x <= 1; x++)
+        if (x >= 0 && y >= 0 && x < width && y < height)
         {
-            for (int y = -1; y <= 1; y++)
-            {
-                if (x == 0 && y == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    int checkX = cell.cellIndexX + x;
-                    int checkY = cell.cellIndexY + y;
-
-                    if (checkX >= 0 && checkX < width && checkY >= 0 && checkY < height)
-                    {
-                        neighbours.Add(gridCellArray[checkX, checkY]);
-                    }
-                }
-            }
+            return gridCellArray[x, y];
         }
-
-        return neighbours;
-    }
-
-    public void MoveObject(int originalX, int originalY, int newX, int newY, UnitStateController controller)
-    {
-        if (originalX >= 0 && originalY >= 0 && newX >= 0 && newY >= 0 && originalX < width && originalY < height && newX < width && newY < height)
+        else
         {
-            foreach (GameObject cellObject in gridCellArray[originalX, originalY].GetObjects())
-            {
-            }
+            return default;
         }
     }
 
-    public void SetShowDebug(bool showDebug)
+    public Jar_GridCell[,] GetAllCells()
     {
-        this.showDebug = showDebug;
+        return gridCellArray;
     }
+
+    public int GetWidth()
+    {
+        return width;
+    }
+
+    public int GridIndex
+    {
+        get
+        {
+            return gridIndex;
+        }
+        set
+        {
+            gridIndex = value;
+        }
+    }
+
+    public string GridName
+    {
+        get
+        {
+            return gridName;
+        }
+        set
+        {
+            gridName = value;
+        }
+    }
+
+    //public UnitStateController GetUnit(Vector3 worldPosition)
+    //{
+    //    int x, y;
+    //    x = Mathf.RoundToInt((worldPosition.x / cellSize) - origin.x);
+    //    y = Mathf.RoundToInt((worldPosition.y / cellSize) - origin.y);
+    //    return GetUnit(x, y);
+    //}
 
     public enum GridAnchor
     {

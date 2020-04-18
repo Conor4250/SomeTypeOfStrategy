@@ -10,15 +10,8 @@ public class IsNextCellFinalCell : UnitDecision
         return NextCellFinalCell(controller);
     }
 
-    private bool NextCellFinalCell(UnitStateController controller)
+    public static bool NextCellFinalCell(UnitStateController controller)
     {
-        if (controller.currentGrid.GetCell(controller.gridPosX + (1 * controller.GetPlayerDirection()), 0) == controller.playerManager.playerSpawnCells[controller.laneIndex])
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return controller.GetNextCell().GetEndCell();
     }
 }

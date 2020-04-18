@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
-    public int playerNumber;
     public PlayerManager playerManager;
 
     //Spawn Points and Unit Types
@@ -28,18 +27,29 @@ public class UnitSpawner : MonoBehaviour
 
     private void Start()
     {
+        playerManager = gameObject.GetComponent<PlayerManager>();
+        playerUI = gameObject.GetComponent<PlayerUI>();
+
         //initiialise lists
         queuedUnits = new List<QueuedUnit>();
+        Debug.Log("queuedUnits = new List<QueuedUnit>();");
         matchedUnits = new List<QueuedUnit>();
         waitingToSpawn = new List<QueuedUnit>();
         typedLetters = new List<char>();
+    }
+
+    public void lateInit()
+    {
+        queuedUnits = new List<QueuedUnit>();
+        Debug.Log("queuedUnits = new List<QueuedUnit>();");
+        matchedUnits = new List<QueuedUnit>();
     }
 
     private void Update()
     {
         if (waitingToSpawn.Count > 0)
         {
-            if (waitingToSpawn[0].grid.GetCellObjects(0, 0).Count <= 0)
+            if (!waitingToSpawn[0].grid.GetCell(0, 0).ContainsUnit())
             {
                 SpawnUnit(waitingToSpawn[0]);
                 waitingToSpawn.RemoveAt(0);
@@ -50,7 +60,7 @@ public class UnitSpawner : MonoBehaviour
     public void QueueUnit(int laneIndex, int typeIndex)
     {
         Debug.Log("Queueing Unit: Lane - " + (laneIndex + 1) + ", Type - " + (typeIndex + 1));
-        QueuedUnit unit = new QueuedUnit(playerManager, laneIndex, lanes.grids[laneIndex], unitTypes[typeIndex]);
+        QueuedUnit unit = new QueuedUnit(playerManager, lanes.grids[laneIndex], unitTypes[typeIndex]);
         queuedUnits.Add(unit);
         playerUI.UpdatePlayerTextUI();
         playerUI.UpdateQueueUI();
@@ -61,7 +71,7 @@ public class UnitSpawner : MonoBehaviour
         matchedUnits.Clear();
         typedLetters.Clear();
         typing = false;
-        if (playerSpawnCells[queuedUnit.laneIndex].cellObjects.Count == 0)
+        if (!playerSpawnCells[queuedUnit.grid.GridIndex].ContainsUnit())
         {
             SpawnUnit(queuedUnit);
         }
@@ -75,10 +85,9 @@ public class UnitSpawner : MonoBehaviour
 
     public void SpawnUnit(QueuedUnit queuedUnit)
     {
-        GameObject spawnedUnit = Instantiate(queuedUnit.unitPrefab, playerSpawnCells[queuedUnit.laneIndex].GetWorldPosition(), Quaternion.identity);
+        GameObject spawnedUnit = Instantiate(queuedUnit.unitPrefab, playerSpawnCells[queuedUnit.grid.GridIndex].GetWorldPosition(), Quaternion.identity);
         var unitStateController = spawnedUnit.GetComponent<UnitStateController>();
-        unitStateController.gridPosX = playerSpawnCells[queuedUnit.laneIndex].cellIndexX;
-        unitStateController.gridPosY = playerSpawnCells[queuedUnit.laneIndex].cellIndexY;
+        unitStateController.SetCurrentCell(playerSpawnCells[queuedUnit.grid.GridIndex]);
         spawnedUnit.SetActive(true);
         unitStateController.Init(queuedUnit);
     }
@@ -152,14 +161,14 @@ public class UnitSpawner : MonoBehaviour
         {
             for (int i = 0; i < matchedUnits.Count; i++)
             {
-                unitQueueInfoString += "T:" + matchedUnits[i].unitPrefab.name + " L:" + (matchedUnits[i].grid.gridName) + " \n";
+                unitQueueInfoString += "T:" + matchedUnits[i].unitPrefab.name + " L:" + (matchedUnits[i].grid.GridName) + " \n";
             }
         }
         else
         {
             for (int i = 0; i < queuedUnits.Count; i++)
             {
-                unitQueueInfoString += "T:" + queuedUnits[i].unitPrefab.name + " L:" + (queuedUnits[i].grid.gridName) + " \n";
+                unitQueueInfoString += "T:" + queuedUnits[i].unitPrefab.name + " L:" + (queuedUnits[i].grid.GridName) + " \n";
             }
         }
         return unitQueueInfoString;
