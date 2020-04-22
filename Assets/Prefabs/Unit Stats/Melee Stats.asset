@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ee8645f8d750849997f019c823a019, type: 3}
+  m_Name: Melee Stats
+  m_EditorClassIdentifier: 
+  baseDamage: 5
+  baseRangeMin: 1
+  baseRangeMax: 1
+  baseHealth: 50
+  baseSpeed: 1
+  baseAttackDelay: 2
+  deathExp: 3
+  lvlUpExp: 0a000000140000001e000000
+  lvlDamage: 3
+  lvlRange: 0
+  lvlHealth: 25
+  lvlSpeed: -0.1
+  lvlAttackDelay: -0.2
+  unitMat: {fileID: 2100000, guid: ac64a59b5b7937b4bb8e3f29501869b2, type: 2}
