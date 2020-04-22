@@ -128,9 +128,10 @@ public class UnitBrain : MonoBehaviour
 
     private IEnumerator DieCoroutine()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         currentState.aiActive = false;
         player.unitManager.RemoveUnit(this);
+        currentCell.RemoveUnit();
         Destroy(gameObject);
     }
 
