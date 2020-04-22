@@ -12,13 +12,16 @@ public class PlayerUnitManager : MonoBehaviour
     public PlayerQueueManager queueManager;
     public Cell[] spawnCells;
 
+    private Color playerColor;
+
     private bool initialised = false;
 
-    public void Init(PlayerManager pm, PlayerQueueManager qm)
+    public void Init(PlayerManager pm, PlayerQueueManager qm, Color color)
     {
         Debug.Log(pm.playerNumber + "  PlayerUnitManager Init Start");
         player = pm;
         queueManager = qm;
+        playerColor = color;
 
         aliveUnits = new List<UnitBrain>();
         waitingToSpawn = new List<QueuedUnit>();
@@ -68,7 +71,7 @@ public class PlayerUnitManager : MonoBehaviour
                 var unit = Instantiate(availableUnits[queuedUnit.unitChoice - 1], spawnCells[queuedUnit.laneChoice - 1].GetWorldPosition(), Quaternion.identity);
                 var brain = unit.GetComponent<UnitBrain>();
                 aliveUnits.Add(brain);
-                brain.initBrain(player, player.enemy, laneContainer.lanes[queuedUnit.laneChoice - 1], spawnCells[queuedUnit.laneChoice - 1], true);
+                brain.initBrain(player, player.enemy, laneContainer.lanes[queuedUnit.laneChoice - 1], spawnCells[queuedUnit.laneChoice - 1], true, playerColor);
             }
         }
     }

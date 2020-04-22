@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public string[] playerNames;
-    public string[] playerKeys;
+    public GameSettings gameSettings;
+    public SceneSwitcher sceneSwitcher;
+    private string[] playerNames;
+    private string[] playerKeys;
+    private Color[] playerColors;
+
     public GameObject[] playerHomes;
 
     public PlayerManager[] players;
@@ -18,12 +23,20 @@ public class GameManager : MonoBehaviour
     public LaneContainer lanes;
     public GameObject mainUI;
     public GameObject[] playerUIs;
+    public GameObject endUI;
 
     private void Start()
     {
         Debug.Log("Game Manager Init Start");
-        playerKeys[0] = "qwertasdfzxcv";
-        playerKeys[1] = "yuiopghjklbnm";
+        playerKeys = new string[2];
+        playerKeys[0] = gameSettings.playerOneKeys;
+        playerKeys[1] = gameSettings.playerTwoKeys;
+        playerNames = new string[2];
+        playerNames[0] = gameSettings.playerOneName;
+        playerNames[1] = gameSettings.playerTwoName;
+        playerColors = new Color[2];
+        playerColors[0] = gameSettings.playerOneColor;
+        playerColors[1] = gameSettings.playerTwoColor;
         InitPlayer(0);
         InitPlayer(1);
         players[0].enemy = players[1];
@@ -31,17 +44,28 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Manager Init Complete");
     }
 
-    private void InitPlayer(int playerIndex)
+    private void InitPlayer(int i)
     {
         var player = new GameObject();
-        player.name = playerNames[playerIndex];
-        players[playerIndex] = player.AddComponent<PlayerManager>();
+        player.name = playerNames[i];
+        players[i] = player.AddComponent<PlayerManager>();
 
-        players[playerIndex].Init(this, playerIndex + 1, playerNames[playerIndex], playerStartingHealth, lanes, playerKeys[playerIndex], levelUnits, mainUI, playerUIs[playerIndex], playerHomes[playerIndex]);
+        players[i].Init(this, i + 1, playerNames[i], playerStartingHealth, lanes, playerKeys[i], levelUnits, mainUI, playerUIs[i], playerHomes[i], playerColors[i]);
     }
 
     // Update is called once per frame
     public void EndGame(PlayerManager loser)
     {
+        var endCanvas = Instantiate(endUI);
+
+        var endScreen = endCanvas.GetComponent<EndScreen>();
+        endScreen.endText.text = (loser.enemy.playerName + " Wins!");
+        StartCoroutine(EndWait());
+    }
+
+    public IEnumerator EndWait()
+    {
+        yield return new WaitForSeconds(3f);
+        sceneSwitcher.LoadScene(0);
     }
 }

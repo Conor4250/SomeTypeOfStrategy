@@ -6,10 +6,11 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public int playerNumber;
+    public Color playerColor;
 
     public GameManager gameManager;
     public PlayerManager enemy;
-    private string playerName;
+    public string playerName;
 
     public GameObject mainUI;
     public GameObject playerUI;
@@ -23,16 +24,17 @@ public class PlayerManager : MonoBehaviour
     public PlayerControlsManager controlsManager;
     public PlayerCanvasManager canvasManager;
 
-    public void Init(GameManager gameManager, int playerNumber, string playerName, int playerStartingHealth, LaneContainer laneContainer, string playerKeys, GameObject[] unitTypes, GameObject mainUI, GameObject startUI, GameObject playerHome)
+    public void Init(GameManager gameManager, int playerNumber, string playerName, int playerStartingHealth, LaneContainer laneContainer, string playerKeys, GameObject[] unitTypes, GameObject mainUI, GameObject startUI, GameObject playerHome, Color color)
     {
         Debug.Log(playerNumber + "  PlayerManager Init Start");
         this.gameManager = gameManager;
         this.playerNumber = playerNumber;
         this.playerName = playerName;
+        playerColor = color;
         this.laneContainer = laneContainer;
         this.mainUI = mainUI;
         this.playerHome = playerHome.GetComponent<PlayerHome>();
-        this.playerHome.Init(gameManager, this, playerStartingHealth);
+        this.playerHome.Init(gameManager, this, playerStartingHealth, playerColor);
         playerUI = startUI;
 
         canvasManager = playerUI.GetComponent<PlayerCanvasManager>();
@@ -44,7 +46,7 @@ public class PlayerManager : MonoBehaviour
 
         canvasManager.Init(this, queueManager, commands);
         actionMapper.Init(playerKeys);
-        unitManager.Init(this, queueManager);
+        unitManager.Init(this, queueManager, playerColor);
         queueManager.Init(this, unitManager, canvasManager);
         commands.Init(this, unitManager, canvasManager);
         controlsManager.Init(this, actionMapper, unitManager, commands);

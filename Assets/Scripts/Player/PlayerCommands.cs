@@ -45,16 +45,6 @@ public class PlayerCommands : MonoBehaviour
                 Debug.Log("SetUnitType(command);");
                 break;
 
-            case InterfaceState.abilities:
-                Abilities(command);
-                Debug.Log("ChooseAbility(command);");
-                break;
-
-            case InterfaceState.upgrades:
-                Upgrades(command);
-                Debug.Log("ChooseUpgrade(command);");
-                break;
-
             default:
                 break;
         }
@@ -80,14 +70,6 @@ public class PlayerCommands : MonoBehaviour
 
             case 3:
                 interfaceState = InterfaceState.setUnit;
-                break;
-
-            case 4:
-                interfaceState = InterfaceState.abilities;
-                break;
-
-            case 5:
-                interfaceState = InterfaceState.upgrades;
                 break;
 
             default:
@@ -152,77 +134,7 @@ public class PlayerCommands : MonoBehaviour
                 break;
 
             case 4:
-                unitChoice = 4;
-                interfaceState = InterfaceState.root;
-                break;
-
-            case 5:
-                interfaceState = InterfaceState.root;
-                break;
-
-            default:
-                break;
-        }
-
-        //update UI
-    }
-
-    private void Abilities(int command)
-    {
-        switch (command)
-        {
-            case 1:
-                //unitChoice = 1;
-                interfaceState = InterfaceState.root;
-                break;
-
-            case 2:
-                //unitChoice = 2;
-                interfaceState = InterfaceState.root; ;
-                break;
-
-            case 3:
-                //unitChoice = 3;
-                interfaceState = InterfaceState.root;
-                break;
-
-            case 4:
-                //unitChoice = 4;
-                interfaceState = InterfaceState.root;
-                break;
-
-            case 5:
-                interfaceState = InterfaceState.root;
-                break;
-
-            default:
-                break;
-        }
-
-        //update UI
-    }
-
-    private void Upgrades(int command)
-    {
-        switch (command)
-        {
-            case 1:
-                //unitChoice = 1;
-                interfaceState = InterfaceState.root;
-                break;
-
-            case 2:
-                //unitChoice = 2;
-                interfaceState = InterfaceState.root; ;
-                break;
-
-            case 3:
-                //unitChoice = 3;
-                interfaceState = InterfaceState.root;
-                break;
-
-            case 4:
-                //unitChoice = 4;
+                unitChoice = Random.Range(1, 4);
                 interfaceState = InterfaceState.root;
                 break;
 
@@ -249,7 +161,5 @@ public class PlayerCommands : MonoBehaviour
         root,
         setLane,
         setUnit,
-        abilities,
-        upgrades
     }
 }

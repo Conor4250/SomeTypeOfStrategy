@@ -44,46 +44,74 @@ public class PlayerCanvasManager : MonoBehaviour
         {
             case PlayerCommands.InterfaceState.root:
                 commandText[0].text = uiStorage.rootSelectionText[0];
+                commandText[0].gameObject.SetActive(true);
                 commandText[1].text = uiStorage.rootSelectionText[1];
+                commandText[1].gameObject.SetActive(true);
                 commandText[2].text = uiStorage.rootSelectionText[2];
+                commandText[2].gameObject.SetActive(true);
                 commandText[3].text = uiStorage.rootSelectionText[3];
+                commandText[3].gameObject.SetActive(false);
                 commandText[4].text = uiStorage.rootSelectionText[4];
+                commandText[4].gameObject.SetActive(false);
+
+                commandImages[0].sprite = uiStorage.rootSelectionImages[0];
+                commandImages[0].gameObject.SetActive(true);
+                commandImages[1].sprite = uiStorage.rootSelectionImages[1];
+                commandImages[1].gameObject.SetActive(true);
+                commandImages[2].sprite = uiStorage.rootSelectionImages[2];
+                commandImages[2].gameObject.SetActive(true);
+                commandImages[3].sprite = uiStorage.rootSelectionImages[3];
+                commandImages[3].gameObject.SetActive(false);
+                commandImages[4].sprite = uiStorage.rootSelectionImages[4];
+                commandImages[4].gameObject.SetActive(false);
                 break;
 
             case PlayerCommands.InterfaceState.setLane:
                 commandText[0].text = uiStorage.laneSelectionText[0];
+                commandText[0].gameObject.SetActive(true);
                 commandText[1].text = uiStorage.laneSelectionText[1];
+                commandText[1].gameObject.SetActive(true);
                 commandText[2].text = uiStorage.laneSelectionText[2];
+                commandText[2].gameObject.SetActive(true);
                 commandText[3].text = uiStorage.laneSelectionText[3];
+                commandText[3].gameObject.SetActive(true);
                 commandText[4].text = uiStorage.laneSelectionText[4];
-                //Debug.Log("SetUnitLane(command);");
+                commandText[4].gameObject.SetActive(true);
+
+                commandImages[0].sprite = uiStorage.laneSelectionImages[0];
+                commandImages[0].gameObject.SetActive(true);
+                commandImages[1].sprite = uiStorage.laneSelectionImages[1];
+                commandImages[1].gameObject.SetActive(true);
+                commandImages[2].sprite = uiStorage.laneSelectionImages[2];
+                commandImages[2].gameObject.SetActive(true);
+                commandImages[3].sprite = uiStorage.laneSelectionImages[3];
+                commandImages[3].gameObject.SetActive(true);
+                commandImages[4].sprite = uiStorage.laneSelectionImages[4];
+                commandImages[4].gameObject.SetActive(true);
                 break;
 
             case PlayerCommands.InterfaceState.setUnit:
                 commandText[0].text = uiStorage.unitSelectionText[0];
+                commandText[0].gameObject.SetActive(true);
                 commandText[1].text = uiStorage.unitSelectionText[1];
+                commandText[1].gameObject.SetActive(true);
                 commandText[2].text = uiStorage.unitSelectionText[2];
+                commandText[2].gameObject.SetActive(true);
                 commandText[3].text = uiStorage.unitSelectionText[3];
+                commandText[3].gameObject.SetActive(true);
                 commandText[4].text = uiStorage.unitSelectionText[4];
-                //Debug.Log("SetUnitType(command);");
-                break;
+                commandText[4].gameObject.SetActive(true);
 
-            case PlayerCommands.InterfaceState.abilities:
-                commandText[0].text = uiStorage.ablilitiesSelectionText[0];
-                commandText[1].text = uiStorage.ablilitiesSelectionText[1];
-                commandText[2].text = uiStorage.ablilitiesSelectionText[2];
-                commandText[3].text = uiStorage.ablilitiesSelectionText[3];
-                commandText[4].text = uiStorage.ablilitiesSelectionText[4];
-                //Debug.Log("ChooseAbility(command);");
-                break;
-
-            case PlayerCommands.InterfaceState.upgrades:
-                commandText[0].text = uiStorage.upgradesSelectionText[0];
-                commandText[1].text = uiStorage.upgradesSelectionText[1];
-                commandText[2].text = uiStorage.upgradesSelectionText[2];
-                commandText[3].text = uiStorage.upgradesSelectionText[3];
-                commandText[4].text = uiStorage.upgradesSelectionText[4];
-                //Debug.Log("ChooseUpgrade(command);");
+                commandImages[0].sprite = uiStorage.unitSelectionImages[0];
+                commandImages[0].gameObject.SetActive(true);
+                commandImages[1].sprite = uiStorage.unitSelectionImages[1];
+                commandImages[1].gameObject.SetActive(true);
+                commandImages[2].sprite = uiStorage.unitSelectionImages[2];
+                commandImages[2].gameObject.SetActive(true);
+                commandImages[3].sprite = uiStorage.unitSelectionImages[3];
+                commandImages[3].gameObject.SetActive(true);
+                commandImages[4].sprite = uiStorage.unitSelectionImages[4];
+                commandImages[4].gameObject.SetActive(true);
                 break;
 
             default:
@@ -93,9 +121,6 @@ public class PlayerCanvasManager : MonoBehaviour
 
     private void UpdateQueue()
     {
-        //List<List<char>> matchedUnitChars = new List<List<char>>();
-        //List<string> matchedUnitInfo = new List<string>();
-
         int slotsToPopulate = CalculateSlotsToPopulate();
         Debug.Log(slotsToPopulate + "slotstopopulate");
 
@@ -106,24 +131,13 @@ public class PlayerCanvasManager : MonoBehaviour
                 Debug.Log(queueManager.queuedUnits[i].spawnString);
             }
         }
+
         //populate queues
         PopulateUnitStrings(slotsToPopulate);
         PopulateUnitInfo(slotsToPopulate);
         ClearUnusedSlots(slotsToPopulate);
         Debug.Log("QUEUEUPDATED");
     }
-
-    //private void PopulateUnitStrings(int slotsToPopulate)
-    //{
-    //    for (int wordIndex = 0; wordIndex < slotsToPopulate; wordIndex++)
-    //    {
-    //        var word = BuildWord(queueManager.matchedUnits[wordIndex].spawnChars);
-    //        for (int letterIndex = 0; letterIndex < word.Length; letterIndex++)
-    //        {
-    //            Instantiate(word[letterIndex], unitStrings[wordIndex].transform);
-    //        }
-    //    }
-    //}
 
     private void PopulateUnitStrings(int slotsToPopulate)
     {
@@ -148,18 +162,6 @@ public class PlayerCanvasManager : MonoBehaviour
                         string unitString = unit.spawnString;
                         unitStrings[wordIndex].text = unitString;
                     }
-                    //TMP_WordInfo info = unitStrings[wordIndex].textInfo.wordInfo[wordIndex];
-                    //for (int i = 0; i < queueManager.typedLetters.Count; ++i)
-                    //{
-                    //    int charIndex = info.firstCharacterIndex + i;
-                    //    int meshIndex = unitStrings[wordIndex].textInfo.characterInfo[charIndex].materialReferenceIndex;
-                    //    int vertexIndex = unitStrings[wordIndex].textInfo.characterInfo[charIndex].vertexIndex;
-
-                    //    Color32[] vertexColors = unitStrings[wordIndex].textInfo.meshInfo[meshIndex].colors32;
-                    //    vertexColors[vertexIndex + 0] = new Color32(255, 255, 255, 255);
-                    //}
-
-                    //unitStrings[wordIndex].UpdateVertexData(TMP_VertexDataUpdateFlags.All);
                 }
             }
         }
@@ -232,29 +234,8 @@ public class PlayerCanvasManager : MonoBehaviour
     {
         for (int wordIndex = populatedSlots; wordIndex < 10; wordIndex++)
         {
-            //foreach (Transform child in unitStrings[wordIndex].transform)
-            //{
-            //    Destroy(child);
-            //}
-
-            unitInfoText[wordIndex].text = "no unit";
-            unitStrings[wordIndex].text = "no string";
+            unitInfoText[wordIndex].text = " ";
+            unitStrings[wordIndex].text = " ";
         }
-    }
-
-    private GameObject[] BuildWord(List<char> letters)
-    {
-        GameObject[] word = new GameObject[letters.Count];
-        for (int letterIndex = 0; letterIndex < word.Length; letterIndex++)
-        {
-            word[letterIndex] = new GameObject();
-            var tmp = word[letterIndex].AddComponent<TextMeshProUGUI>();
-            tmp.fontSize = 18;
-            tmp.alignment = TextAlignmentOptions.Center;
-            var le = word[letterIndex].AddComponent<LayoutElement>();
-            le.preferredHeight = 10;
-        }
-
-        return word;
     }
 }

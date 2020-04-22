@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8F4F68D6-EECF-F69A-5A1F-1B943713302E}</ProjectGuid>
+    <ProjectGuid>{2B58FA92-5E15-E2F0-E016-5BE6F3B51FC0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -64,69 +64,68 @@
      <Compile Include="Assets\Scripts\Standard Utilities\Scriptable Values\Editor\EditorVector2Reference.cs" />
      <Compile Include="Assets\Scripts\Standard Utilities\Scriptable Values\Editor\EditorVector3Reference.cs" />
      <Compile Include="Assets\Scripts\Standard Utilities\Scriptable Values\Editor\ScriptableValueGenerator.cs" />
-     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InputSystem">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Programs/Unity Installs/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -315,16 +314,16 @@
  <HintPath>C:/Programs/Unity Installs/2019.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.NRefactory">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/PackageCache/com.unity.render-pipelines.core@7.3.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>E:/Libraries/Coding Projects/Unity/Type Racing Strategy Game/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>E:/Libraries/Coding Projects/Unity/SoftwareEngineering19Game/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Programs/Unity Installs/2019.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -683,7 +682,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{79515434-523F-D61D-2DFE-ECF266963C3A}</Project>
+      <Project>{B826A7F8-B555-D7AE-B159-CF5D45524F23}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

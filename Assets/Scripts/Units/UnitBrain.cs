@@ -20,7 +20,7 @@ public class UnitBrain : MonoBehaviour
     public HealthBar healthBar;
     private Renderer renderComponent;
 
-    public void initBrain(PlayerManager player, PlayerManager enemy, Lane lane, Cell cell, bool aiActive)
+    public void initBrain(PlayerManager player, PlayerManager enemy, Lane lane, Cell cell, bool aiActive, Color color)
     {
         this.player = player;
         if (player.playerNumber == 1)
@@ -34,6 +34,7 @@ public class UnitBrain : MonoBehaviour
         this.enemy = enemy;
 
         renderComponent = gameObject.GetComponent<Renderer>();
+        renderComponent.material.SetColor(Shader.PropertyToID("shaderGlowColor"), color);
         currentState = new CurrentState(this, unitStats, healthBar, renderComponent);
 
         currentLane = lane;
@@ -101,6 +102,7 @@ public class UnitBrain : MonoBehaviour
                 else
                 {
                     enemy.playerHome.takeDamage(currentState.damage);
+                    currentState.attackReady = false;
                     StartCoroutine(AttackWait());
                 }
             }

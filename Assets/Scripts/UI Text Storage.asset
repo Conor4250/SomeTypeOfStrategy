@@ -13,32 +13,38 @@ MonoBehaviour:
   m_Name: UI Text Storage
   m_EditorClassIdentifier: 
   rootSelectionText:
-  - Queue Unit
-  - Set Lane
-  - Set Unit
-  - Abilities
-  - Upgrades
+  - '1: Queue Unit'
+  - '2: Set Lane'
+  - '3: Set Unit'
+  - ' '
+  - ' '
   laneSelectionText:
-  - Lane One
-  - Lane Two
-  - Lane Three
-  - Random
-  - Go Back
+  - '1: Lane One'
+  - '2: Lane Two'
+  - '3: Lane Three'
+  - '4: Random'
+  - '5: Go Back'
   unitSelectionText:
-  - Melee
-  - Ranged
-  - Tank
-  - notimplemneted
-  - Go Back
-  ablilitiesSelectionText:
-  - notimplemneted
-  - notimplemneted
-  - notimplemneted
-  - notimplemneted
-  - notimplemneted
-  upgradesSelectionText:
-  - notimplemneted
-  - notimplemneted
-  - notimplemneted
-  - notimplemneted
-  - notimplemneted
+  - '1: Mid'
+  - '2: Light'
+  - '3: Heavy'
+  - '4: Random'
+  - '5: Go Back'
+  rootSelectionImages:
+  - {fileID: 21300000, guid: 51ef6c6610de44145b2f1b14671b12ad, type: 3}
+  - {fileID: 21300000, guid: 767389cee3264d946999e128bf4552e0, type: 3}
+  - {fileID: 21300000, guid: 24ca537d8240c604884854a05f522585, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}
+  laneSelectionImages:
+  - {fileID: 21300000, guid: 5f6661c7cd0cb40489de62c9d35d4d3f, type: 3}
+  - {fileID: 21300000, guid: 4a5c56d3f6fe13d43ad00f954072360b, type: 3}
+  - {fileID: 21300000, guid: 6c540d2001e7b78488052578907a01e8, type: 3}
+  - {fileID: 21300000, guid: 395972728ee88694da317c76ba162eb8, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}
+  unitSelectionImages:
+  - {fileID: 21300000, guid: 5f6661c7cd0cb40489de62c9d35d4d3f, type: 3}
+  - {fileID: 21300000, guid: 4a5c56d3f6fe13d43ad00f954072360b, type: 3}
+  - {fileID: 21300000, guid: 6c540d2001e7b78488052578907a01e8, type: 3}
+  - {fileID: 21300000, guid: 395972728ee88694da317c76ba162eb8, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}
