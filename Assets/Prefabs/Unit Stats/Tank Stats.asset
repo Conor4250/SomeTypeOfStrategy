@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ee8645f8d750849997f019c823a019, type: 3}
+  m_Name: Tank Stats
+  m_EditorClassIdentifier: 
+  baseDamage: 5
+  baseRangeMin: 1
+  baseRangeMax: 1
+  baseHealth: 200
+  baseSpeed: 5
+  baseAttackDelay: 5
+  deathExp: 20
+  lvlUpExp: 0f0000001e0000002d000000
+  lvlDamage: 10
+  lvlRange: 0
+  lvlHealth: 250
+  lvlSpeed: -0.1
+  lvlAttackDelay: -0.5
+  unitMat: {fileID: 2100000, guid: 1dfdaab0375c50e4795419f5d12a6ce2, type: 2}

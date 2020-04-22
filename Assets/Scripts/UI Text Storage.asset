@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a764b73439f304ebd677757afb9f1e, type: 3}
+  m_Name: UI Text Storage
+  m_EditorClassIdentifier: 
+  rootSelectionText:
+  - '1: Queue Unit'
+  - '2: Set Lane'
+  - '3: Set Unit'
+  - ' '
+  - ' '
+  laneSelectionText:
+  - '1: Lane One'
+  - '2: Lane Two'
+  - '3: Lane Three'
+  - '4: Random'
+  - '5: Go Back'
+  unitSelectionText:
+  - '1: Mid'
+  - '2: Light'
+  - '3: Heavy'
+  - '4: Random'
+  - '5: Go Back'
+  rootSelectionImages:
+  - {fileID: 21300000, guid: 51ef6c6610de44145b2f1b14671b12ad, type: 3}
+  - {fileID: 21300000, guid: 767389cee3264d946999e128bf4552e0, type: 3}
+  - {fileID: 21300000, guid: 24ca537d8240c604884854a05f522585, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}
+  laneSelectionImages:
+  - {fileID: 21300000, guid: 5f6661c7cd0cb40489de62c9d35d4d3f, type: 3}
+  - {fileID: 21300000, guid: 4a5c56d3f6fe13d43ad00f954072360b, type: 3}
+  - {fileID: 21300000, guid: 6c540d2001e7b78488052578907a01e8, type: 3}
+  - {fileID: 21300000, guid: 395972728ee88694da317c76ba162eb8, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}
+  unitSelectionImages:
+  - {fileID: 21300000, guid: 5f6661c7cd0cb40489de62c9d35d4d3f, type: 3}
+  - {fileID: 21300000, guid: 4a5c56d3f6fe13d43ad00f954072360b, type: 3}
+  - {fileID: 21300000, guid: 6c540d2001e7b78488052578907a01e8, type: 3}
+  - {fileID: 21300000, guid: 395972728ee88694da317c76ba162eb8, type: 3}
+  - {fileID: 21300000, guid: 4adf512fe92af1a4dbaf97d4b9809e80, type: 3}

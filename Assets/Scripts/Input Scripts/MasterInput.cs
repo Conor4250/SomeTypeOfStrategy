@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class MasterInput : IInputActionCollection, IDisposable
+public class @MasterInput : IInputActionCollection, IDisposable
 {
-    private InputActionAsset asset;
-    public MasterInput()
+    public InputActionAsset asset { get; }
+    public @MasterInput()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""MasterInput"",
@@ -288,8 +288,8 @@ public class MasterInput : IInputActionCollection, IDisposable
     private readonly InputAction m_InGame_Action1;
     public struct InGameActions
     {
-        private MasterInput m_Wrapper;
-        public InGameActions(MasterInput wrapper) { m_Wrapper = wrapper; }
+        private @MasterInput m_Wrapper;
+        public InGameActions(@MasterInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Action0 => m_Wrapper.m_InGame_Action0;
         public InputAction @Action9 => m_Wrapper.m_InGame_Action9;
         public InputAction @Action8 => m_Wrapper.m_InGame_Action8;
@@ -309,70 +309,70 @@ public class MasterInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_InGameActionsCallbackInterface != null)
             {
-                Action0.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
-                Action0.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
-                Action0.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
-                Action9.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
-                Action9.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
-                Action9.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
-                Action8.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
-                Action8.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
-                Action8.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
-                Action7.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
-                Action7.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
-                Action7.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
-                Action6.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
-                Action6.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
-                Action6.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
-                Action5.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
-                Action5.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
-                Action5.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
-                Action4.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
-                Action4.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
-                Action4.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
-                Action3.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
-                Action3.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
-                Action3.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
-                Action2.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
-                Action2.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
-                Action2.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
-                Action1.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
-                Action1.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
-                Action1.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
+                @Action0.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
+                @Action0.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
+                @Action0.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction0;
+                @Action9.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
+                @Action9.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
+                @Action9.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction9;
+                @Action8.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
+                @Action8.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
+                @Action8.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction8;
+                @Action7.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
+                @Action7.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
+                @Action7.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction7;
+                @Action6.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
+                @Action6.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
+                @Action6.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction6;
+                @Action5.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
+                @Action5.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
+                @Action5.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction5;
+                @Action4.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
+                @Action4.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
+                @Action4.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction4;
+                @Action3.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
+                @Action3.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
+                @Action3.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction3;
+                @Action2.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
+                @Action2.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
+                @Action2.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction2;
+                @Action1.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
+                @Action1.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
+                @Action1.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnAction1;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Action0.started += instance.OnAction0;
-                Action0.performed += instance.OnAction0;
-                Action0.canceled += instance.OnAction0;
-                Action9.started += instance.OnAction9;
-                Action9.performed += instance.OnAction9;
-                Action9.canceled += instance.OnAction9;
-                Action8.started += instance.OnAction8;
-                Action8.performed += instance.OnAction8;
-                Action8.canceled += instance.OnAction8;
-                Action7.started += instance.OnAction7;
-                Action7.performed += instance.OnAction7;
-                Action7.canceled += instance.OnAction7;
-                Action6.started += instance.OnAction6;
-                Action6.performed += instance.OnAction6;
-                Action6.canceled += instance.OnAction6;
-                Action5.started += instance.OnAction5;
-                Action5.performed += instance.OnAction5;
-                Action5.canceled += instance.OnAction5;
-                Action4.started += instance.OnAction4;
-                Action4.performed += instance.OnAction4;
-                Action4.canceled += instance.OnAction4;
-                Action3.started += instance.OnAction3;
-                Action3.performed += instance.OnAction3;
-                Action3.canceled += instance.OnAction3;
-                Action2.started += instance.OnAction2;
-                Action2.performed += instance.OnAction2;
-                Action2.canceled += instance.OnAction2;
-                Action1.started += instance.OnAction1;
-                Action1.performed += instance.OnAction1;
-                Action1.canceled += instance.OnAction1;
+                @Action0.started += instance.OnAction0;
+                @Action0.performed += instance.OnAction0;
+                @Action0.canceled += instance.OnAction0;
+                @Action9.started += instance.OnAction9;
+                @Action9.performed += instance.OnAction9;
+                @Action9.canceled += instance.OnAction9;
+                @Action8.started += instance.OnAction8;
+                @Action8.performed += instance.OnAction8;
+                @Action8.canceled += instance.OnAction8;
+                @Action7.started += instance.OnAction7;
+                @Action7.performed += instance.OnAction7;
+                @Action7.canceled += instance.OnAction7;
+                @Action6.started += instance.OnAction6;
+                @Action6.performed += instance.OnAction6;
+                @Action6.canceled += instance.OnAction6;
+                @Action5.started += instance.OnAction5;
+                @Action5.performed += instance.OnAction5;
+                @Action5.canceled += instance.OnAction5;
+                @Action4.started += instance.OnAction4;
+                @Action4.performed += instance.OnAction4;
+                @Action4.canceled += instance.OnAction4;
+                @Action3.started += instance.OnAction3;
+                @Action3.performed += instance.OnAction3;
+                @Action3.canceled += instance.OnAction3;
+                @Action2.started += instance.OnAction2;
+                @Action2.performed += instance.OnAction2;
+                @Action2.canceled += instance.OnAction2;
+                @Action1.started += instance.OnAction1;
+                @Action1.performed += instance.OnAction1;
+                @Action1.canceled += instance.OnAction1;
             }
         }
     }

@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12386, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Keys:
+  - __PanelContainer__rootVisualContainer__builder-style-sheets__unity-builder-explorer-tree__UnityEngine.UIElements.TreeView
+  - __PanelContainer__rootVisualContainer__builder-style-sheets__unity-builder-explorer-tree__unity-tree-view__list-view__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__builder-style-sheets__unity-builder-explorer-tree__unity-tree-view__list-view__list-view__scroll-view__HorizontalScroller__Slider__UnityEngine.UIElements.Slider
+  - __PanelContainer__rootVisualContainer__builder-style-sheets__unity-builder-explorer-tree__unity-tree-view__list-view__list-view__scroll-view__VerticalScroller__Slider__UnityEngine.UIElements.Slider
+  - builder-hierarchy__Unity.UI.Builder.BuilderHierarchy
+  - __PanelContainer__rootVisualContainer__builder-hierarchy__unity-builder-explorer-tree__UnityEngine.UIElements.TreeView
+  - __PanelContainer__rootVisualContainer__builder-hierarchy__unity-builder-explorer-tree__unity-tree-view__list-view__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__builder-hierarchy__unity-builder-explorer-tree__unity-tree-view__list-view__list-view__scroll-view__HorizontalScroller__Slider__UnityEngine.UIElements.Slider
+  - __PanelContainer__rootVisualContainer__builder-hierarchy__unity-builder-explorer-tree__unity-tree-view__list-view__list-view__scroll-view__VerticalScroller__Slider__UnityEngine.UIElements.Slider
+  - __PanelContainer__rootVisualContainer__samples-tree__UnityEngine.UIElements.TreeView
+  - __PanelContainer__rootVisualContainer__samples-tree__unity-tree-view__list-view__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__samples-tree__unity-tree-view__list-view__list-view__scroll-view__HorizontalScroller__Slider__UnityEngine.UIElements.Slider
+  - __PanelContainer__rootVisualContainer__samples-tree__unity-tree-view__list-view__list-view__scroll-view__VerticalScroller__Slider__UnityEngine.UIElements.Slider
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__Unity.UI.Builder.BuilderInspector
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-attributes-inherited-styles-foldout__builder-inspector-class-list-container-foldout__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-attributes-inherited-styles-foldout__builder-inspector-matching-selectors-container-foldout__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-display__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-position__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-flex__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-align__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-size__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-size__builder-inspector-style-section-foldout-size__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-margin-padding__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-margin-padding__builder-inspector-style-section-foldout-margin__Unity.UI.Builder.FoldoutNumberField
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-margin-padding__builder-inspector-style-section-foldout-padding__Unity.UI.Builder.FoldoutNumberField
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-text__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-background__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-background__builder-inspector-style-section-foldout-unity-slice__Unity.UI.Builder.FoldoutNumberField
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-border__Unity.UI.Builder.PersistedFoldout
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-border__builder-inspector-style-section-foldout-border-color__Unity.UI.Builder.FoldoutColorField
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-border__builder-inspector-style-section-foldout-border-width__Unity.UI.Builder.FoldoutNumberField
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-border__builder-inspector-style-section-foldout-border-radius__Unity.UI.Builder.FoldoutNumberField
+  - __PanelContainer__rootVisualContainer__unity-ui-builder-inspector__builder-inspector-local-styles-foldout__builder-inspector-style-section-foldout-cursor__Unity.UI.Builder.PersistedFoldout
+  m_Values:
+  - '{"m_ExpandedItemIds":[]}'
+  - '{"m_ItemHeight":20,"m_ItemHeightIsInline":true,"m_ScrollOffset":0.0,"m_SelectedIds":[]}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":100.0}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":0.0}'
+  - '{"m_ElementInfoVisibilityState":0}'
+  - '{"m_ExpandedItemIds":[1]}'
+  - '{"m_ItemHeight":20,"m_ItemHeightIsInline":true,"m_ScrollOffset":0.0,"m_SelectedIds":[-476776507]}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":100.0}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":0.0}'
+  - '{"m_ExpandedItemIds":[0,51]}'
+  - '{"m_ItemHeight":20,"m_ItemHeightIsInline":true,"m_ScrollOffset":0.0,"m_SelectedIds":[1]}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":100.0}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":201.0}'
+  - '{"m_CachedScrollPositionCount":0,"m_OldestScrollPositionIndex":0,"m_CachedContentHeights":[0.0,0.0,0.0,0.0,0.0],"m_CachedScrollPositions":[{"scrollPosition":0.0,"maxScrollValue":0.0},{"scrollPosition":0.0,"maxScrollValue":0.0},{"scrollPosition":0.0,"maxScrollValue":0.0},{"scrollPosition":0.0,"maxScrollValue":0.0},{"scrollPosition":0.0,"maxScrollValue":0.0}]}'
+  - '{"m_Value":true}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":true,"fieldValues":[]}'
+  - '{"m_Value":true,"fieldValues":[]}'
+  - '{"m_Value":false}'
+  - '{"m_Value":false}'
+  - '{"m_Value":true,"fieldValues":[]}'
+  - '{"m_Value":false}'
+  - '{"m_Value":true,"fieldValues":[{"r":0.0,"g":0.0,"b":0.0,"a":255.0},{"r":0.0,"g":0.0,"b":0.0,"a":255.0},{"r":0.0,"g":0.0,"b":0.0,"a":255.0},{"r":0.0,"g":0.0,"b":0.0,"a":255.0}]}'
+  - '{"m_Value":true,"fieldValues":[]}'
+  - '{"m_Value":true,"fieldValues":[]}'
+  - '{"m_Value":false}'

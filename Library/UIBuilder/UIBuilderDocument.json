@@ -1,0 +1,49 @@
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "BuilderDocument",
+        "m_EditorClassIdentifier": "",
+        "m_VisualTreeAssetBackup": {
+            "instanceID": 0
+        },
+        "m_OpenendVisualTreeAssetOldPath": "",
+        "m_OpenendMainStyleSheetOldPath": "",
+        "m_MainStyleSheetBackup": {
+            "instanceID": 0
+        },
+        "m_VisualTreeAsset": {
+            "instanceID": 0
+        },
+        "m_MainStyleSheet": {
+            "instanceID": 0
+        },
+        "m_CurrentCanvasTheme": 3,
+        "m_Settings": {
+            "UxmlGuid": "",
+            "UxmlPath": "",
+            "CanvasX": 0,
+            "CanvasY": 0,
+            "CanvasWidth": 350,
+            "CanvasHeight": 550,
+            "ZoomScale": 1.0,
+            "PanOffset": {
+                "x": 20.0,
+                "y": 20.0
+            },
+            "CanvasBackgroundOpacity": 1.0,
+            "CanvasBackgroundMode": 0,
+            "CanvasBackgroundColor": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 255.0
+            },
+            "CanvasBackgroundImage": {
+                "instanceID": 0
+            },
+            "CanvasBackgroundImageScaleMode": 1,
+            "CanvasBackgroundCameraName": ""
+        }
+    }
+}
