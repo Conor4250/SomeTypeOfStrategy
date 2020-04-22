@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ee8645f8d750849997f019c823a019, type: 3}
   m_Name: Tank Stats
   m_EditorClassIdentifier: 
-  baseDamage: 10
+  baseDamage: 5
   baseRangeMin: 1
   baseRangeMax: 1
-  baseHealth: 500
+  baseHealth: 200
   baseSpeed: 5
   baseAttackDelay: 5
   deathExp: 20

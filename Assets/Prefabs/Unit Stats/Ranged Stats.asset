@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ee8645f8d750849997f019c823a019, type: 3}
   m_Name: Ranged Stats
   m_EditorClassIdentifier: 
-  baseDamage: 10
+  baseDamage: 20
   baseRangeMin: 1
   baseRangeMax: 2
   baseHealth: 50
-  baseSpeed: 0.6
+  baseSpeed: 0.8
   baseAttackDelay: 1.5
   deathExp: 5
   lvlUpExp: 0f0000001e0000002d000000

@@ -415,7 +415,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
-  unitStats: {fileID: 11400000, guid: d9fd4b3c64ac4e5409bc128f0f729e2f, type: 2}
+  unitStats: {fileID: 11400000, guid: cec766138bd2976489c0914dfb42fa45, type: 2}
   currentState:
     unitBrain: {fileID: 0}
     initialStats: {fileID: 0}
