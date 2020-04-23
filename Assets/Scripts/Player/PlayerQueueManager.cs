@@ -40,40 +40,33 @@ public class PlayerQueueManager : MonoBehaviour
     public void ScanQueueForChar(char input)
     {
         typedLetters.Add(input);
-        Debug.Log(new string(typedLetters.ToArray()));
-        //if not already comparing, reset match list and start comparing
-        if (!matchingUnits)
+        if (!matchingUnits)//if not already comparing, reset match list and start comparing
         {
             matchingUnits = true;
             matchedUnits = queuedUnits;
         }
-
         if (queuedUnits.Count > 0)
         {
             List<QueuedUnit> tempMatchedUnits = new List<QueuedUnit>();
-            //for each matchedUnit
-            for (int i = 0; i < matchedUnits.Count; i++)
+            for (int i = 0; i < matchedUnits.Count; i++)//for each matchedUnit
             {
                 QueuedUnit unit = matchedUnits[i];
                 string unitCompareString = unit.spawnString.Substring(0, typedLetters.Count);
                 string playerCompareString = new string(typedLetters.ToArray()).Substring(0, typedLetters.Count);
-                //if perfect match, spawn the unit
-                if (unit.spawnString == playerCompareString)
+                if (unit.spawnString == playerCompareString)//if perfect match, spawn the unit
                 {
                     unitManager.AddUnitToSpawnList(unit);
                     queuedUnits.Remove(unit);
                     typedLetters.Clear();
                     matchingUnits = false;
                     break;
-                } //else delete the units that do not match from the matching list
-                else if (unitCompareString == playerCompareString)
+                }
+                else if (unitCompareString == playerCompareString)//else delete the units that do not match from the matching list
                 {
                     tempMatchedUnits.Add(unit);
                 }
             }
-
-            //if no more matching units exist, set matching to false
-            if (tempMatchedUnits.Count == 0)
+            if (tempMatchedUnits.Count == 0)//if no more matching units exist, set matching to false
             {
                 matchingUnits = false;
                 typedLetters.Clear();
@@ -83,7 +76,6 @@ public class PlayerQueueManager : MonoBehaviour
                 matchedUnits = tempMatchedUnits;
             }
         }
-
         canvasManager.UpdateCanvases();
     }
 

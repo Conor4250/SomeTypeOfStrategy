@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: UI Text Storage
   m_EditorClassIdentifier: 
   rootSelectionText:
-  - '1: Queue Unit'
-  - '2: Set Lane'
-  - '3: Set Unit'
+  - Queue Unit
+  - Set Lane
+  - Set Unit
   - ' '
   - ' '
   laneSelectionText:
-  - '1: Lane One'
-  - '2: Lane Two'
-  - '3: Lane Three'
-  - '4: Random'
-  - '5: Go Back'
+  - Lane One
+  - Lane Two
+  - Lane Three
+  - Random
+  - Go Back
   unitSelectionText:
-  - '1: Mid'
-  - '2: Light'
-  - '3: Heavy'
-  - '4: Random'
-  - '5: Go Back'
+  - Mid
+  - Light
+  - Heavy
+  - Random
+  - Go Back
   rootSelectionImages:
   - {fileID: 21300000, guid: 51ef6c6610de44145b2f1b14671b12ad, type: 3}
   - {fileID: 21300000, guid: 767389cee3264d946999e128bf4552e0, type: 3}

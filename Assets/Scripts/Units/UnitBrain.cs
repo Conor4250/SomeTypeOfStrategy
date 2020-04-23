@@ -17,6 +17,8 @@ public class UnitBrain : MonoBehaviour
     private Lane currentLane;
     private int moveDir = 1;
 
+    private Tween moveTween;
+
     public HealthBar healthBar;
     private Renderer renderComponent;
 
@@ -62,17 +64,18 @@ public class UnitBrain : MonoBehaviour
                     currentCell.RemoveUnit();
                     currentCell = nextCell;
                     currentCell.SetUnit(this);
+                    CalculateNextCell();
 
                     for (int i = 0; i < enemy.unitManager.spawnCells.Length; i++)
                     {
-                        if (currentCell == enemy.unitManager.spawnCells[i])
+                        if (nextCell == enemy.unitManager.spawnCells[i])
                         {
                             finalCell = true;
                         }
                     }
-                    CalculateNextCell();
+
                     currentState.movingToCell = true;
-                    transform.DOMove(currentCell.GetWorldPosition(), currentState.moveSpeed);
+                    moveTween = transform.DOMove(currentCell.GetWorldPosition(), currentState.moveSpeed);
                 }
             }
             else if (currentState.movingToCell) //keep moving and check if youve reached the currentcell position
@@ -123,15 +126,17 @@ public class UnitBrain : MonoBehaviour
 
     private void Die()
     {
+        moveTween.Complete();
         StartCoroutine(DieCoroutine());
     }
 
     private IEnumerator DieCoroutine()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         currentState.aiActive = false;
         player.unitManager.RemoveUnit(this);
         currentCell.RemoveUnit();
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 
@@ -212,8 +217,8 @@ public class UnitBrain : MonoBehaviour
 
         public void TakeDamage(int damage, UnitBrain damager)
         {
-            var damageFlashStart = unitRenderer.material.DOColor(Color.red, 0.1f);
-            var damageFlashEnd = unitRenderer.material.DOColor(Color.white, 0.9f).SetDelay(0.1f);
+            //var damageFlashStart = unitRenderer.material.DOColor(Color.red, 0.1f);
+            //var damageFlashEnd = unitRenderer.material.DOColor(Color.white, 0.9f).SetDelay(0.1f);
 
             health -= damage;
             unitBrain.healthBar.SetHealth(health);
@@ -221,8 +226,8 @@ public class UnitBrain : MonoBehaviour
             if (health <= 0)
             {
                 damager.currentState.GainExp(deathExp);
-                DOTween.Complete(damageFlashStart);
-                DOTween.Complete(damageFlashEnd);
+                //DOTween.Complete(damageFlashStart);
+                //DOTween.Complete(damageFlashEnd);
                 unitBrain.Die();
             }
         }
