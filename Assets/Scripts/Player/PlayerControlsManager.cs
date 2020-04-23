@@ -49,7 +49,6 @@ public class PlayerControlsManager : MonoBehaviour
     public void ProcessAnyKey(InputAction.CallbackContext callbackContext)
     {
         char c = char.Parse(callbackContext.control.name);
-        //Debug.Log(c);
         unitManager.queueManager.ScanQueueForChar(c);
     }
 
@@ -62,7 +61,6 @@ public class PlayerControlsManager : MonoBehaviour
         {
             commandInt -= 5;
         }
-
         commands.ProcessCommand(commandInt);
     }
 

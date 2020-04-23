@@ -8,6 +8,7 @@ public class PlayerHome : MonoBehaviour
     private PlayerManager player;
     private Color playerColor;
     private Renderer ren;
+    public HealthBar hpBar;
 
     [SerializeField]
     private int health;
@@ -23,11 +24,13 @@ public class PlayerHome : MonoBehaviour
         playerColor = color;
         ren = gameObject.GetComponent<Renderer>();
         ren.material.SetColor(Shader.PropertyToID("shaderGlowColor"), playerColor);
+        hpBar.SetMaxHealth(healthMax);
     }
 
     public void takeDamage(int amount)
     {
         health -= amount;
+        hpBar.SetHealth(health);
         if (health <= 0)
         {
             gameManager.EndGame(player);

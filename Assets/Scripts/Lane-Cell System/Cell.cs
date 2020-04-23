@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Cell
 {
-    //public GameObject cellGO;
-    private Lane parent;
-
+    public Lane parent;
     public int index;
     private UnitBrain occupyingUnit;
-
     public bool isProtected, containsUnit = false;
-
     private Vector3 worldPosition;
 
     public Cell(Lane parent, int index, Vector3 worldPosition)

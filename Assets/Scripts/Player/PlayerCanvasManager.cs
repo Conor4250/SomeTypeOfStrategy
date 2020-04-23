@@ -8,10 +8,12 @@ public class PlayerCanvasManager : MonoBehaviour
 {
     public GameObject unitStringCanvas, unitInfoCanvas, commandCanvas;
 
-    //public GameObject[] unitStrings;
-    public Image[] commandImages;
+    private Image[] commandImages;
 
-    public TextMeshProUGUI[] unitStrings, unitInfoText, commandText;
+    private TextMeshProUGUI[] commandText;
+
+    public TextMeshProUGUI[] unitStrings, unitInfoText;
+    public GameObject[] commandGOs;
     public PlayerManager player;
     public PlayerQueueManager queueManager;
     public PlayerCommands commands;
@@ -24,7 +26,13 @@ public class PlayerCanvasManager : MonoBehaviour
         player = pm;
         queueManager = pqm;
         commands = pc;
-
+        commandImages = new Image[5];
+        commandText = new TextMeshProUGUI[5];
+        for (int i = 0; i < commandGOs.Length; i++)
+        {
+            commandImages[i] = commandGOs[i].transform.GetChild(0).GetComponent<Image>();
+            commandText[i] = commandGOs[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        }
         initialised = true;
         Debug.Log(pm.playerNumber + "  CanvasManager Init Complete");
     }
@@ -44,74 +52,53 @@ public class PlayerCanvasManager : MonoBehaviour
         {
             case PlayerCommands.InterfaceState.root:
                 commandText[0].text = uiStorage.rootSelectionText[0];
-                commandText[0].gameObject.SetActive(true);
                 commandText[1].text = uiStorage.rootSelectionText[1];
-                commandText[1].gameObject.SetActive(true);
                 commandText[2].text = uiStorage.rootSelectionText[2];
-                commandText[2].gameObject.SetActive(true);
                 commandText[3].text = uiStorage.rootSelectionText[3];
-                commandText[3].gameObject.SetActive(false);
                 commandText[4].text = uiStorage.rootSelectionText[4];
-                commandText[4].gameObject.SetActive(false);
 
                 commandImages[0].sprite = uiStorage.rootSelectionImages[0];
-                commandImages[0].gameObject.SetActive(true);
                 commandImages[1].sprite = uiStorage.rootSelectionImages[1];
-                commandImages[1].gameObject.SetActive(true);
                 commandImages[2].sprite = uiStorage.rootSelectionImages[2];
-                commandImages[2].gameObject.SetActive(true);
                 commandImages[3].sprite = uiStorage.rootSelectionImages[3];
-                commandImages[3].gameObject.SetActive(false);
                 commandImages[4].sprite = uiStorage.rootSelectionImages[4];
-                commandImages[4].gameObject.SetActive(false);
+
+                commandGOs[3].SetActive(false);
+                commandGOs[4].SetActive(false);
                 break;
 
             case PlayerCommands.InterfaceState.setLane:
                 commandText[0].text = uiStorage.laneSelectionText[0];
-                commandText[0].gameObject.SetActive(true);
                 commandText[1].text = uiStorage.laneSelectionText[1];
-                commandText[1].gameObject.SetActive(true);
                 commandText[2].text = uiStorage.laneSelectionText[2];
-                commandText[2].gameObject.SetActive(true);
                 commandText[3].text = uiStorage.laneSelectionText[3];
-                commandText[3].gameObject.SetActive(true);
                 commandText[4].text = uiStorage.laneSelectionText[4];
-                commandText[4].gameObject.SetActive(true);
 
                 commandImages[0].sprite = uiStorage.laneSelectionImages[0];
-                commandImages[0].gameObject.SetActive(true);
                 commandImages[1].sprite = uiStorage.laneSelectionImages[1];
-                commandImages[1].gameObject.SetActive(true);
                 commandImages[2].sprite = uiStorage.laneSelectionImages[2];
-                commandImages[2].gameObject.SetActive(true);
                 commandImages[3].sprite = uiStorage.laneSelectionImages[3];
-                commandImages[3].gameObject.SetActive(true);
                 commandImages[4].sprite = uiStorage.laneSelectionImages[4];
-                commandImages[4].gameObject.SetActive(true);
+
+                commandGOs[3].SetActive(true);
+                commandGOs[4].SetActive(true);
                 break;
 
             case PlayerCommands.InterfaceState.setUnit:
                 commandText[0].text = uiStorage.unitSelectionText[0];
-                commandText[0].gameObject.SetActive(true);
                 commandText[1].text = uiStorage.unitSelectionText[1];
-                commandText[1].gameObject.SetActive(true);
                 commandText[2].text = uiStorage.unitSelectionText[2];
-                commandText[2].gameObject.SetActive(true);
                 commandText[3].text = uiStorage.unitSelectionText[3];
-                commandText[3].gameObject.SetActive(true);
                 commandText[4].text = uiStorage.unitSelectionText[4];
-                commandText[4].gameObject.SetActive(true);
 
                 commandImages[0].sprite = uiStorage.unitSelectionImages[0];
-                commandImages[0].gameObject.SetActive(true);
                 commandImages[1].sprite = uiStorage.unitSelectionImages[1];
-                commandImages[1].gameObject.SetActive(true);
                 commandImages[2].sprite = uiStorage.unitSelectionImages[2];
-                commandImages[2].gameObject.SetActive(true);
                 commandImages[3].sprite = uiStorage.unitSelectionImages[3];
-                commandImages[3].gameObject.SetActive(true);
                 commandImages[4].sprite = uiStorage.unitSelectionImages[4];
-                commandImages[4].gameObject.SetActive(true);
+
+                commandGOs[3].SetActive(true);
+                commandGOs[4].SetActive(true);
                 break;
 
             default:
@@ -122,8 +109,6 @@ public class PlayerCanvasManager : MonoBehaviour
     private void UpdateQueue()
     {
         int slotsToPopulate = CalculateSlotsToPopulate();
-        Debug.Log(slotsToPopulate + "slotstopopulate");
-
         for (int i = 0; i < queueManager.matchedUnits.Count; i++)
         {
             if (queueManager.matchingUnits)
@@ -131,12 +116,9 @@ public class PlayerCanvasManager : MonoBehaviour
                 Debug.Log(queueManager.queuedUnits[i].spawnString);
             }
         }
-
-        //populate queues
         PopulateUnitStrings(slotsToPopulate);
         PopulateUnitInfo(slotsToPopulate);
         ClearUnusedSlots(slotsToPopulate);
-        Debug.Log("QUEUEUPDATED");
     }
 
     private void PopulateUnitStrings(int slotsToPopulate)
@@ -236,6 +218,11 @@ public class PlayerCanvasManager : MonoBehaviour
         {
             unitInfoText[wordIndex].text = " ";
             unitStrings[wordIndex].text = " ";
+        }
+        if (populatedSlots == 0)
+        {
+            unitInfoText[0].text = "Type what appears";
+            unitStrings[0].text = "Queue a unit!";
         }
     }
 }

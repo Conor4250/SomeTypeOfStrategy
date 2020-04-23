@@ -24,7 +24,6 @@ public class Lane
         this.laneName = laneName;
         this.parentContainer = parentContainer;
         cells = new Cell[length];
-
         for (int i = 0; i < length; i++)
         {
             cells[i] = new Cell(this, i, GetWorldPosition(i, GridAnchor.Center));

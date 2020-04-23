@@ -32,23 +32,19 @@ public class PlayerCommands : MonoBehaviour
         {
             case InterfaceState.root:
                 Root(command);
-                Debug.Log("ProcessDefaultState(command);");
                 break;
 
             case InterfaceState.setLane:
                 SetLane(command);
-                Debug.Log("SetUnitLane(command);");
                 break;
 
             case InterfaceState.setUnit:
                 SetUnit(command);
-                Debug.Log("SetUnitType(command);");
                 break;
 
             default:
                 break;
         }
-
         canvasManager.UpdateCanvases();
     }
 

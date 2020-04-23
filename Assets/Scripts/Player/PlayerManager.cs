@@ -53,7 +53,7 @@ public class PlayerManager : MonoBehaviour
 
         canvasManager.UpdateCanvases();
 
-        //StartCoroutine(InitialUnitSpawn());
+        StartCoroutine(InitialUnitSpawn());
         Debug.Log(playerNumber + "  PlayerControlsManager Init Complete");
     }
 
